@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Requisicion;
 use App\Http\Requests;
 use DB;
+use Date;
 
 class HomeController extends Controller
 {
@@ -24,6 +25,11 @@ class HomeController extends Controller
 			 		['nom'	=>	'', 'url' => '#']
 				]];
 
+    $date = new Date('2017-05-27');
+    $date = $date->format('l, j \d\e F \d\e Y');
+    $data['fecha'] = $date;
+    
         return view('home',$data);     
     }
+
 }

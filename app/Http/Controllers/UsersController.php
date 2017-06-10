@@ -28,9 +28,13 @@ class UsersController extends Controller
     public function authenticate(Request $request)
     {
       //return $request->contraseña;
-    	if (Auth::attempt(['usuario' => $request->input('nombre'), 'password' => $request->input('contraseña'), 'activo' => 'true'])) 
-    	{
-             return redirect()->route('doInicio');
+      $usuario = User::where('usuario', $request->nombre)
+          ->where('password', md5($request->contraseña))
+          ->where('activo','true')->first();
+    	if($usuario)         
+    	{ 
+        Auth::login($usuario);
+        return redirect()->route('doInicio');
 		}
 		else
 		{

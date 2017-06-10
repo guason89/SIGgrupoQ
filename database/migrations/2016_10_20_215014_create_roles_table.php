@@ -12,10 +12,10 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-       Schema::create('roles', function (Blueprint $table) {
+       Schema::create('perfiles', function (Blueprint $table) {
             $table->integer('id');
-            $table->string('name',30)->unique();
-            $table->string('description');
+            $table->string('nombre',20)->unique();
+            $table->string('descripcion');
           
             $table->timestamps();
 
@@ -30,6 +30,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-         Schema::drop('roles');
+         Schema::drop('perfiles');
     }
 }

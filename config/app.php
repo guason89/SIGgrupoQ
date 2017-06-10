@@ -184,6 +184,7 @@ return [
         Milon\Barcode\BarcodeServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class, 
         Styde\Html\HtmlServiceProvider::class,
+        Jenssegers\Date\DateServiceProvider::class,
 
 
     ],
@@ -240,6 +241,7 @@ return [
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Date' => Jenssegers\Date\Date::class,
 
     ],
 

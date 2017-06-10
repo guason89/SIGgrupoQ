@@ -3,6 +3,6 @@
 
 @section('contenido')
 <div class="simple-text">
-    Entro correctamente al sistema!!!
+    {{$fecha}}
 </div>
 @endsection

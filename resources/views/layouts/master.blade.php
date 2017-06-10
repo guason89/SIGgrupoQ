@@ -40,13 +40,12 @@
             <!--Area de menu-->
             <ul class="nav">
                 <li class="active">
-                    <a href="dashboard.html">
+                    <a>
                         <i class="fa fa-home"></i>
                         <p>Menu Principal</p>
-                    </a>
-                    @yield('menu')
+                    </a>                    
                 </li>
-
+                @include('layouts.menus.tactico')
             </ul>
     	</div>
     </div>
@@ -77,7 +76,7 @@
                         <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <p>
-                                       {{Auth::User()->name}}
+                                       {{Auth::User()->nombre}}
                                         <b class="caret"></b>
                                     </p>
                               </a>
