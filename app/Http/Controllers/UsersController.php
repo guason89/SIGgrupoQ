@@ -58,11 +58,7 @@ class UsersController extends Controller
     	$roles = Perfiles::select('id','nombre')->get();    	
       return view('auth.register',['roles'=>$roles]);
     }
-     public function create($id)
-    {
-       $roles = Role::where('id','!=',4)->lists('name','id')->prepend('Seleccione un perfil');      
-      return view('auth.insertar',['roles'=>$roles,'departamento'=>$id]);
-    }
+     
     public function postRegister(Request $request){
 
       $this->validate($request,[             
@@ -85,7 +81,7 @@ class UsersController extends Controller
     
        flash('guardado','success');
         $usuarios = User::all();
-        return view('auth.index')->with('usuarios',$usuarios);
+        return redirect()->route('indexusuarios');
       
     }
     public function getEdit($id){
