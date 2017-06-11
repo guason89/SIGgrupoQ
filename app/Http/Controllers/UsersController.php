@@ -21,8 +21,16 @@ class UsersController extends Controller
    protected $loginView = 'auth.login';
 
     public function index(){
-       	$usuarios = User::all();
-       	return view('auth.index')->with('usuarios',$usuarios);
+      $data = ['title'      => 'Inicio' 
+        ,'subtitle'     => ''
+        ,'breadcrumb'     => [
+          ['nom'  =>  '', 'url' => route('indexusuarios')]
+        ]];
+
+      $usuarios = User::all();
+      $data['usuarios'] = $usuarios;
+       	
+       	return view('auth.index',$data);
     }
 
     public function authenticate(Request $request)

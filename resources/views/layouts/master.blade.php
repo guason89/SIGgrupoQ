@@ -58,7 +58,9 @@
                 @endif
 
             </ul>
+
     	</div>
+        
     </div>
 
     <div class="main-panel">
