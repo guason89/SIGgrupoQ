@@ -45,7 +45,18 @@
                         <p>Menu Principal</p>
                     </a>                    
                 </li>
-                @include('layouts.menus.tactico')
+                @if(Auth::User()->idPerfil==1)
+                    @include('layouts.menus.admin')
+                    @include('layouts.menus.tactico')
+                    @include('layouts.menus.estrategico')                
+                @endif
+                @if(Auth::User()->idPerfil==2)
+                    @include('layouts.menus.tactico')                                
+                @endif
+                @if(Auth::User()->idPerfil==3)
+                    @include('layouts.menus.estrategico')                                
+                @endif
+
             </ul>
     	</div>
     </div>

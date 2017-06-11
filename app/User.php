@@ -17,7 +17,7 @@ class User extends Authenticatable
     protected $table='usuarios';
     protected $primaryKey='id';
     protected $fillable = [
-        'nombre', 'email', 'password',
+        'nombre', 'email', 'password','usuario','activo','idPerfil',
     ];
 
     /**
@@ -28,4 +28,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function perfil(){
+        return $this->hasOne('sig\Models\Perfiles','id','idPerfil');       
+    }
 }

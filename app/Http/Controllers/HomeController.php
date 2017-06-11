@@ -25,7 +25,7 @@ class HomeController extends Controller
 			 		['nom'	=>	'', 'url' => '#']
 				]];
 
-    $date = new Date('2017-05-27');
+    $date = new Date();
     $date = $date->format('l, j \d\e F \d\e Y');
     $data['fecha'] = $date;
     

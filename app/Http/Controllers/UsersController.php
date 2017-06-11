@@ -9,7 +9,7 @@ use App\Http\Requests\User\UserCreateRequest;
 use App\Http\Requests\User\UserUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use App\Models\Perfiles;
 use Auth;
 use Laracasts\Flash\Flash;
 
@@ -55,7 +55,7 @@ class UsersController extends Controller
     }
   
     public function getRegister(){
-    	$roles = Role::where('id','!=',4)->lists('name','id')->prepend('Seleccione un perfil');    	
+    	$roles = Perfiles::select('id','nombre')->get();    	
       return view('auth.register',['roles'=>$roles]);
     }
      public function create($id)
@@ -63,44 +63,30 @@ class UsersController extends Controller
        $roles = Role::where('id','!=',4)->lists('name','id')->prepend('Seleccione un perfil');      
       return view('auth.insertar',['roles'=>$roles,'departamento'=>$id]);
     }
-    public function postRegister(UserCreateRequest $request){
+    public function postRegister(Request $request){
 
-      if($request->input('depto'))
-      {
-        $depto= Department::FindOrFail($request->input('depto')); 
-        User::create([
-            'name' =>$request->input('name'), 
-            'usuario' =>$request->input('usuario'),       
-            'email' =>$request->input('email'),
-            'password' => bcrypt($request['password']),
-            'activo' =>'true',  
-            'perfil_id'=>'4',
-            'departamento_id'=>$depto->id,
-            ]
-        );           
-       
-        $depto->update([           
-            'encargado' =>$request->input('name'),                                 
-          ]);
-       flash('guardado','success');       
-        return redirect()->route('departamento.index');
-      }
-      else
-      {
+      $this->validate($request,[             
+          'name'=>'required|max:100|regex: /^[a-zA-Z0-9áéíóúñÑ,\s\-\_\.]*$/ ',
+          'email' => 'required|email|max:255|unique:usuarios',
+          'usuario'=>'required|max:100|unique:usuarios|regex: /^[a-zA-Z0-9áéíóúñÑ,\s\-\_\.]*$/ ',
+          'password' => 'required|confirmed|min:6',
+          'perfil'=>'required|not_in:0',
+        ]);
+
       	User::create([
-            'name' =>$request->input('name'),	
-            'usuario' =>$request->input('usuario'),  	    
-            'email' =>$request->input('email'),
-		        'password' => bcrypt($request['password']),
+            'nombre' =>$request->name,	
+            'usuario' =>$request->usuario,  	    
+            'email' =>$request->email,
+		        'password' => md5($request->password),
 		        'activo' =>'true',	
-		        'perfil_id'=>$request->input('perfil'),
+		        'idPerfil'=>$request->perfil,
 		        ]
     		);
     
        flash('guardado','success');
         $usuarios = User::all();
         return view('auth.index')->with('usuarios',$usuarios);
-      }
+      
     }
     public function getEdit($id){
     	  $usuario = User::FindOrFail($id);

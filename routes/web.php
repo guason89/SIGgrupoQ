@@ -32,8 +32,8 @@ Route::get('/home',['as' => 'doInicio','uses' => 'HomeController@index']);
 Route::get('login',['as'=>'login', 'uses'=>'UsersController@showLoginForm']);
 Route::post('login','UsersController@authenticate');
 Route::get('logout',['as'=>'logout','uses'=> 'UsersController@logout']);
-Route::get('register','UsersController@getRegister');
-Route::post('register','UsersController@postRegister');
+
+
 Route::get('usuario/create/{id}','UsersController@create');
 Route::resource('usuario','UsersController');
 

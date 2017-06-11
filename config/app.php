@@ -169,6 +169,7 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,  
 
         /*
          * Application Service Providers...
@@ -242,6 +243,7 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Date' => Jenssegers\Date\Date::class,
+        'Flash'=> Laracasts\Flash\Flash::class,
 
     ],
 

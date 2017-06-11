@@ -1,13 +1,13 @@
-@extends('layouts.template')
+@extends('layouts.master')
 
-@section('content')
-<div class="container">
+@section('contenido')
+
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Registrar Usuario</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('register') }}" autocomplete="off">
+                    <form class="form-horizontal" role="form" method="POST" action="{{route('store.usuario')}}" autocomplete="off">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -83,7 +83,12 @@
                             <label class="col-md-4 control-label">Perfil</label>
 
                             <div class="col-md-6">
-                                {!! Form::select('perfil',$roles,null,['name'=>'perfil','class'=>'form-control'])!!}  
+                                <select class="form-control" id="perfil" name="perfil">
+                                  <option value="">Seleccion un Perfil</option>
+                                  @foreach($roles as $r)
+                                  <option value="{{$r->id}}">{{$r->nombre}}</option>
+                                  @endforeach
+                                </select>   
                                 
                                 @if ($errors->has('perfil'))
                                     <span class="help-block">
@@ -107,5 +112,5 @@
             </div>
         </div>
     </div>
-</div>
+
 @endsection

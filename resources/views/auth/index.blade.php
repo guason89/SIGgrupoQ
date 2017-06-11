@@ -1,6 +1,6 @@
-@extends('layouts.template')
+@extends('layouts.master')
 
-@section('content')
+@section('contenido')
     <div class="encabezado">
 	    <h3>Usuarios</h3>
     </div>	
@@ -8,7 +8,7 @@
      
 <div class="panel-body table-responsive">
                    
-             @include('Msj.messages')         
+           
 
 
 
@@ -26,8 +26,8 @@
                    @foreach ($usuarios as $u)
                       <tr>
                               <td>{{$u->usuario}}</td>
-                              <td>{{$u->name}}</td>               
-                              <td>{{$u->perfil["name"]}}</td> 
+                              <td>{{$u->nombre}}</td>               
+                              <td>{{$u->perfil["nombre"]}}</td> 
                               <td >
 
                               <a class="btn btn-default btn-sm" title="editar" href="{{url($u->id,'edit')}}"><span class="glyphicon glyphicon-pencil "></span></a>   
