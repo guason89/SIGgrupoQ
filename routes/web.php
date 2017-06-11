@@ -34,16 +34,6 @@ Route::post('login','UsersController@authenticate');
 Route::get('logout',['as'=>'logout','uses'=> 'UsersController@logout']);
 
 
-Route::get('usuario/create/{id}','UsersController@create');
-Route::resource('usuario','UsersController');
-
-
-Route::group(['middleware'=>['auth']],function(){
-	
-    //rutas de usuarios q solo puede acceder el admin
-	Route::get('user/{id}',['as'=>'usuario-eliminar','uses'=>'UsersController@mostrar']);
-	Route::get('{id}/edit','UsersController@getEdit');
-});
 
 
 	

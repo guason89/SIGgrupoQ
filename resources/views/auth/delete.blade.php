@@ -1,28 +1,29 @@
-@extends('layouts.template')
+@extends('layouts.master')
 
-@section('content')
+@section('contenido')
 
 
 <div class="panel-body table-responsive">
        
                 <div class="box-header with-border">
-                  <h3 class="box-title">CONFIRMA ELIMINAR EL Usuario</h3>
+                  <h3 class="box-title">CONFIRMA ELIMINAR EL USUARIO???</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
                 <div class="form-horizontal">
-	               {!!Form::open(['route'=>['usuario.destroy',$usuario->id],'method'=>'DELETE'])!!}
-
+	               <form action="{{ route('destroy.usuario') }}" method="POST"  role="form">
+						{{ csrf_field() }}
 	               		<div class="panel panel-default">
 							<table class="table table-hover ">							
 							  
 							    <tr class="row">
 								    <th class="col-xs-1">Numero</th>
+								    <input type="hidden" name="idUsuario" value="{{$usuario->id}}">
 								    <td class="col-xs-6">{{$usuario->id}}</td>
 								    <td class="col-xs-5"></td>
 							    </tr>
 								    <tr class="row">
 								    <th class="col-xs-1">Nombre</th>
-								    <td class="col-xs-6">{{$usuario->name}}</td>
+								    <td class="col-xs-6">{{$usuario->nombre}}</td>
 								    <td class="col-xs-5 "></td>
 							    </tr> 
 							    </tr>
@@ -33,7 +34,7 @@
 							    </tr> 							   
 							    <tr class="row">
 								    <th class="col-xs-1">Perfil</th>
-								    <td class="col-xs-6">{{$usuario->perfil_id}}</td>
+								    <td class="col-xs-6">{{$usuario->perfil['nombre']}}</td>
 								    <td class="col-xs-5"></td>
 							    </tr> 
 							    <tr class="row">
@@ -47,7 +48,7 @@
 						</div>
 	            
 	                  <div class="">
-	                  		<a href="{{Route('usuario.index')}}"><button type="button" id="cancelar" class="btn btn-default m-t-10">Cancelar</button></a>
+	                  		<a href="javascript:window.history.back();"><button type="button" id="cancelar" class="btn btn-default m-t-10">Cancelar</button></a>
 	                        <button type="submit" class="btn btn-danger">Eliminar</button>
 	                  </div><!-- /.box-footer -->
 	               {!!Form::close()!!}

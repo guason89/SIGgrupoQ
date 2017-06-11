@@ -1,21 +1,30 @@
-@extends('layouts.template')
+@extends('layouts.master')
 
-@section('content')
+@section('contenido')
 
-<div class="container">
+@if (count($errors)>0)
+    <div class='alert alert-danger' role='alert'>
+        <strong>Atencion:</strong>
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach         
+        </ul>
+    </div>
+@endif
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Actualizar Usuario</div>
                 <div class="panel-body">
-                    {!!Form::model($usuario,['route'=>['usuario.update',$usuario->id],'method'=>'patch'])!!}                   
+                    <form action="{{ route('actualizar.usuario') }}" method="POST"  role="form">                   
                         {{ csrf_field() }}
-
+                        <input type="hidden" name="idUsuario" value="{{$usuario->id}}">
                         <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Nombre</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="nombre" value="{{$usuario->name}}" required>
+                                <input type="text" class="form-control" name="nombre" value="{{$usuario->nombre}}" required>
 
                                 @if ($errors->has('nombre'))
                                     <span class="help-block">
@@ -56,27 +65,27 @@
                             <div class="col-md-6">
                                 <select name="perfil" class="form-control">
                                     @foreach ($roles as $rol)
-                                        @if($rol->id == $usuario->perfil_id)
+                                        @if($rol->id == $usuario->idPerfil)
                                             <option selected value={{$rol->id}} >
-                                                {{$rol->name}}
+                                                {{$rol->nombre}}
                                             </option>
                                         @else
                                             <option value={{$rol->id}}>
-                                                {{$rol->name}}
+                                                {{$rol->nombre}}
                                             </option>
                                         @endif
                      
                                     @endforeach
                                 </select>
                                 <div class="error">
-                                    <ul>@foreach($errors->get('unidad') as $msg)<li>{{$msg}}</li> @endforeach</ul>
+                                    <ul>@foreach($errors->get('perfil') as $msg)<li>{{$msg}}</li> @endforeach</ul>
                                 </div>              
                             </div>
                         </div>                      
-                        <div id="btn_pass" onclick="mostrarPass()">
+                        <div id="btn_pass" onclick="return mostrarPass();">
                             <a href="#">Establecer Contraseña</a>
                         </div>
-                        <div id="div_pass">
+                        <div id="div_pass" style="display: none;">
                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <label class="col-md-4 control-label">contraseña</label>
 
@@ -122,20 +131,20 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <a href="{{Route('usuario.index')}}"><button type="button" id="cancelar" class="btn btn-default m-t-10">Cancelar</button></a>
+                                <a href="javascript:window.history.back();"><button type="button" id="cancelar" class="btn btn-default m-t-10">Cancelar</button></a>
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-user"></i>Actualizar
                                 </button>
                             </div>
                         </div>
-                    {!!Form::close()!!}
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
 @endsection
-@section('script')
+@section('js')
 <script >
 function mostrarPass(){
 document.getElementById('div_pass').style.display = 'block';}

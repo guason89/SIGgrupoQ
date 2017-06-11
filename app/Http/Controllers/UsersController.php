@@ -21,12 +21,7 @@ class UsersController extends Controller
    protected $loginView = 'auth.login';
 
     public function index(){
-      $data = ['title'      => 'Inicio' 
-        ,'subtitle'     => ''
-        ,'breadcrumb'     => [
-          ['nom'  =>  '', 'url' => route('indexusuarios')]
-        ]];
-
+      
       $usuarios = User::all();
       $data['usuarios'] = $usuarios;
        	
@@ -94,81 +89,51 @@ class UsersController extends Controller
     }
     public function getEdit($id){
     	  $usuario = User::FindOrFail($id);
-       	$roles = Role::all();    	
+       	$roles = Perfiles::all();    	
     	  return view('auth.edit',['roles'=>$roles,'usuario'=>$usuario]);
     }
 
     //funcion actualizar usuario
-    public function update(Request $request, $id){
-
+    public function update(Request $request){
+ 
       $this->validate($request,[
-            'nombre'=>'required|max:100|regex: /^[a-zA-Z0-9áéíóúñÑ,\s\-\_\.]*$/|unique:users,name,'.$id.',id',
-            'email' => 'required|email|max:255|unique:users,email,'.$id.',id',
-            'password' => 'confirmed|min:6',
-
+            'nombre'=>'required|max:100|regex: /^[a-zA-Z0-9áéíóúñÑ,\s\-\_\.]*$/|unique:usuarios,nombre,'.$request->idUsuario.',id',
+            'email' => 'required|email|max:255|unique:usuarios,email,'.$request->idUsuario.',id',
+            'usuario'=>'required',
         ]); 
-      
+     
          //recuperar usuario a actualizar
-        $usuario = User::FindOrFail($id);
-        $depto=Department::where('id','=',$usuario->departamento_id)->first();
-        if($depto){
-          $depto->update([           
-            'encargado' =>$request->input('nombre'),                                 
-          ]);
-        }
-        
-
-         if($request->input('depto'))//if deptos
+        $usuario = User::FindOrFail($request->idUsuario);
+    
+        if($request->input('password'))
         {
-          if($request->input('password'))
-          {
-            $usuario->update([           
-            'name' =>$request->input('nombre'),
-            'usuario' =>$request->input('usuario'),        
-            'email' =>$request->input('email'),
-            'password' => bcrypt($request['password']),             
-          ]);
-          }
-          else
-          {
-            $usuario->update([           
-            'name' =>$request->input('nombre'),       
-            'email' =>$request->input('email'),
-            'usuario' =>$request->input('usuario'),               
-          ]);
-          }
-          
-        flash('actualizado','success');
-        return redirect()->back();
-        }//fin if deptos
+          $this->validate($request,[
+            'password' => 'confirmed|min:6',
+        ]);
+
+           $usuario->update([          
+          'nombre' =>$request->input('nombre'),           
+          'password' => md5($request['password']),                 
+          'email' =>$request->input('email'), 
+          'usuario' =>$request->input('usuario'),         
+          'activo' =>$request->input('activo'),  
+          'idPerfil'=>$request->input('perfil')
+        ]);
+        }
         else
         {
-          if($request->input('password'))
-          {
-             $usuario->update([          
-            'name' =>$request->input('nombre'),           
-            'password' => bcrypt($request['password']),                 
-            'email' =>$request->input('email'), 
-            'usuario' =>$request->input('usuario'),         
-            'activo' =>$request->input('activo'),  
-            'perfil_id'=>$request->input('perfil')
-          ]);
-          }
-          else
-          {
-             $usuario->update([          
-            'name' =>$request->input('nombre'),                         
-            'email' =>$request->input('email'), 
-            'usuario' =>$request->input('usuario'),         
-            'activo' =>$request->input('activo'),  
-            'perfil_id'=>$request->input('perfil')
-          ]);
-          }
+           $usuario->update([          
+          'nombre' =>$request->input('nombre'),                         
+          'email' =>$request->input('email'), 
+          'usuario' =>$request->input('usuario'),         
+          'activo' =>$request->input('activo'),  
+          'idPerfil'=>$request->input('perfil')
+        ]);
+        }
         
         flash('actualizado','success');
-        $usuarios = User::all();
-        return view('auth.index')->with('usuarios',$usuarios); 
-        }    
+        return redirect()->route('indexusuarios');
+           
         
     }//fin de update
 
@@ -178,25 +143,14 @@ class UsersController extends Controller
         return view('auth.delete')->with('usuario',$usuario);
     }
 
-   public function destroy($id)
-    {
-      $u=User::FindOrFail($id);
-
-      if($u->perfil_id==4)
-      {
-        $departamento = Department::where('id',$u->departamento_id)->first(); 
-         if($departamento){
-          $departamento->update([           
-            'encargado' =>'No Definido',                                 
-          ]);
-        }  
-      }           
-       
+   public function destroy(Request $request)
+    { 
+      $u=User::FindOrFail($request->idUsuario);
+          
       $u->delete();
      
-            flash('eliminado exitosamente','success');
-            $usuarios = User::all();
-            return view('auth.index')->with('usuarios',$usuarios);
+            flash('eliminado exitosamente','success');            
+            return redirect()->route('indexusuarios');
         
     }
 

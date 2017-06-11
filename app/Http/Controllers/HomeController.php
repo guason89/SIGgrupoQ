@@ -18,12 +18,7 @@ class HomeController extends Controller
     }
     
      public function index()
-    {
-    	$data = ['title' 			=> 'Inicio' 
-				,'subtitle'			=> ''
-				,'breadcrumb' 		=> [
-			 		['nom'	=>	'', 'url' => '#']
-				]];
+    {   	
 
     $date = new Date();
     $date = $date->format('l, j \d\e F \d\e Y');

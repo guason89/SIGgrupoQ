@@ -4,7 +4,7 @@
     <div class="encabezado">
 	    <h3>Usuarios</h3>
     </div>	
-        <a href="{{url('register')}}" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>Nuevo</a>
+        <a href="{{route('insertar.usuario')}}" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>Nuevo</a>
      
 <div class="panel-body table-responsive">
                    
@@ -30,9 +30,9 @@
                               <td>{{$u->perfil["nombre"]}}</td> 
                               <td >
 
-                              <a class="btn btn-default btn-sm" title="editar" href="{{url($u->id,'edit')}}"><span class="glyphicon glyphicon-pencil "></span></a>   
+                              <a class="btn btn-default btn-sm" title="editar" href="{{route('editar.usuario',['id'=>$u->id])}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>   
 
-                              <a class="btn btn-default btn-sm" title="eliminar" href="{{route('usuario-eliminar',$u->id)}}"><span class="glyphicon glyphicon-trash "></span></a>
+                              <a class="btn btn-default btn-sm" title="eliminar" href="{{route('eliminar.usuario',$u->id)}}"><i class="fa fa-trash" aria-hidden="true"></i></a>
                               </td>
                          
                       </tr>
