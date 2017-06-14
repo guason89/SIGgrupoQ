@@ -9,21 +9,24 @@
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
-
-
+ 
     <!-- Bootstrap core CSS     -->
     <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
+     
+     <link rel="stylesheet" href="{{asset('plugins/datepicker/datepicker.min.css')}}">
 
-    <!-- Animation library for notifications   -->
-    <link href="{{asset('assets/css/animate.min.css')}}" rel="stylesheet"/>
-
-    <!--  Light Bootstrap Table core CSS    -->
-    <link href="{{asset('assets/css/light-bootstrap-dashboard.css')}}" rel="stylesheet"/>
-
+    <link href="{{asset('plugins/alertifyjs/css/alertify.min.css')}}" rel="stylesheet">
     <!--     Fonts and icons     -->
     <link href="{{asset('assets/css/font-awesome.css')}}" rel="stylesheet">
+
+      <!--  Light Bootstrap Table core CSS    -->
+    <link href="{{asset('assets/css/light-bootstrap-dashboard.css')}}" rel="stylesheet"/>
+   
+
+
+
     
-    <link href="{{asset('assets/css/pe-icon-7-stroke.css')}}" rel="stylesheet" />
+    @yield('css')
 
 </head>
 <body>
@@ -66,21 +69,19 @@
     <div class="main-panel">
         <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">          
-
+                
                 <div class="collapse navbar-collapse"> 
-                  
+                    
                     <ul class="nav navbar-nav navbar-right">                    
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <p>
-                                       {{Auth::User()->nombre}}
-                                        <b class="caret"></b>
-                                    </p>
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="{{route('logout')}}">Salir</a></li>                               
-                              </ul>
-                        </li>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">{{Auth::User()->nombre}}
+                            <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a href="{{route('logout')}}">Salir</a></li>                  
+                              <li class="divider"></li>
+                              <li><a href="#">ayuda</a></li>
+                            </ul>
+                        </div>
                        
                         <li class="separator hidden-lg hidden-md"></li>
                     </ul>
@@ -108,6 +109,7 @@
                     <img style="width: 60px; height: 60px;" src="{{asset('assets/img/logo.png')}}">                                   
                 </nav>
                 <p class="copyright pull-right">
+                    {{Auth::User()->perfil['nombre']}}
                     &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">SIG</a>, Grupo Q
                 </p>
             </div>
@@ -117,33 +119,32 @@
 </div>
 
 
-</body>
-
-    <!--   Core JS Files   -->
-    <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-
-	<!--  Checkbox, Radio & Switch Plugins -->
-	<script src="assets/js/bootstrap-checkbox-radio-switch.js"></script>
-
-	<!--  Charts Plugin -->
-	<script src="assets/js/chartist.min.js"></script>
-
-    <!--  Notifications Plugin    -->
-    <script src="assets/js/bootstrap-notify.js"></script>
-
-    <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-
+  <!--   Core JS Files   -->
+   
+   
+     <script src="{{asset('plugins/jQuery/jQuery.js')}}"></script>
+    
+    <script src="{{asset('plugins/datepicker/bootstrap-datepicker.js')}}"></script>
+      
+    <script src="{{asset('plugins/alertifyjs/alertify.min.js')}}"></script>
+    <!-- para poner mascaras a los input-->
+    <script src="{{asset('plugins/input-mask/inputmask.js')}}"></script>
+    <!--<script src="{{asset('plugins/mask/jquery.mask.min.js')}}"></script>-->
+	<script src="{{asset('assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-	<script src="assets/js/light-bootstrap-dashboard.js"></script>
+    <script src="assets/js/light-bootstrap-dashboard.js"></script>
 
-	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-	<script src="assets/js/demo.js"></script>
+  
+
     <script >
-       $('#msj').delay(1500).fadeOut(2000);;
+       $('#msj').delay(1500).fadeOut(2000);
+
+        
      </script>
+     
+    
+
     @yield('js')
      
-
+</body>
 </html>
