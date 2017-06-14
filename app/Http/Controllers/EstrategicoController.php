@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Date;
+use PDF;
 
 class EstrategicoController extends Controller
 {
@@ -16,7 +17,8 @@ class EstrategicoController extends Controller
     }
 
     public function reabastecimientoAlmacenes(){
-    	return "reabastecimientoAlmacenes";
+    	$pdf = PDF::loadHtml('<p>contenido del pdf</p>');
+        return $pdf->stream(); 
     }
 
     public function kilometrajeConsumido(){

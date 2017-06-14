@@ -31,7 +31,7 @@
 			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 	            <div class="input-group" >
 	              <div class="input-group-addon"><b>Fecha Desde :</b></div>
-	              <input type="text" class="form-control datepicker date_masking" id="fechaInicio" name="fechaInicio" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd">
+	              <input type="text" class="form-control datepicker date_masking" id="fechaInicio" name="fechaInicio" placeholder="dd-mm-yyyy">
 	            </div>
 	        </div>        
 		</div>
@@ -40,7 +40,7 @@
 			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 	            <div class="input-group">
 	              <div class="input-group-addon"><b>Fecha Hasta :</b></div>
-	              <input type="date" class="form-control datepicker date_masking" id="fechaFin" name="fechaFin" placeholder="yyyy-mm-dd">	              
+	              <input type="date" class="form-control datepicker date_masking" id="fechaFin" name="fechaFin" placeholder="dd-mm-yyyy">	              
 	            </div>
 	        </div>
 		</div>
@@ -78,7 +78,7 @@ $(document).ready(function(){
 
 $(function() {
     $( ".datepicker" ).datepicker({
-       appendText:"(dd-dd-yyyy)",
+       appendText:"(dd-mm-yyyy)",
        dateFormat:"dd-mm-yyyy",
        
     });
