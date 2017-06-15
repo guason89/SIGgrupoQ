@@ -10,16 +10,10 @@
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
  
-    <!-- Bootstrap core CSS     -->
-    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
-     
-     <link rel="stylesheet" href="{{asset('plugins/datepicker/datepicker.min.css')}}">
-
-    <link href="{{asset('plugins/alertifyjs/css/alertify.min.css')}}" rel="stylesheet">
-    <!--     Fonts and icons     -->
-    <link href="{{asset('assets/css/font-awesome.css')}}" rel="stylesheet">
-
-      <!--  Light Bootstrap Table core CSS    -->
+    {!! Html::style('css/bootstrap.min.css') !!} 
+    {!! Html::style('plugins/datepicker/datepicker.min.css') !!}
+    {!! Html::style('plugins/timepicker/bootstrap-timepicker.min.css') !!}
+    {!! Html::style('plugins/font-awesome/css/font-awesome.min.css') !!}      
     <link href="{{asset('assets/css/light-bootstrap-dashboard.css')}}" rel="stylesheet"/>
    
 
@@ -122,22 +116,20 @@
   <!--   Core JS Files   -->
    
    
-     <script src="{{asset('plugins/jQuery/jQuery.js')}}"></script>
-    
-    <script src="{{asset('plugins/datepicker/bootstrap-datepicker.js')}}"></script>
-      
-    <script src="{{asset('plugins/alertifyjs/alertify.min.js')}}"></script>
-    <!-- para poner mascaras a los input-->
-    <script src="{{asset('plugins/input-mask/inputmask.js')}}"></script>
-    <!--<script src="{{asset('plugins/mask/jquery.mask.min.js')}}"></script>-->
-	<script src="{{asset('assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
-    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+    {!! Html::script('js/jquery.min.js') !!}
+    {!! Html::script('js/bootstrap.min.js') !!}
+    {!! Html::script('plugins/datepicker/bootstrap-datepicker.js') !!}
+    {!! Html::script('plugins/mask/jquery.mask.min.js') !!}
+    {!! Html::script('plugins/alertifyjs/alertify.min.js') !!}
+    {!! Html::script('plugins/timepicker/bootstrap-timepicker.js') !!}
     <script src="assets/js/light-bootstrap-dashboard.js"></script>
 
   
 
     <script >
-       $('#msj').delay(1500).fadeOut(2000);
+        $('#msj').delay(2000).fadeOut(2000);
+
+        $( ".datepicker" ).datepicker();
 
         
      </script>

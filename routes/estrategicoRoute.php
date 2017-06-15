@@ -5,6 +5,8 @@
 Route::group(['middleware'=>['auth']],function(){
 
 	Route::get('rptest01',['as'=>'inventario.selectivo','uses'=>'EstrategicoController@inventarioSelectivo']);
+	
+	Route::post('pdf/rptest01',['as'=>'informe-inventario-selectivo','uses'=>'EstrategicoController@inventarioSelectivoPdf']);
 
 	Route::get('rtrest02/',['as'=>'reabastecimiento.almacenes','uses'=>'EstrategicoController@reabastecimientoAlmacenes']);
 

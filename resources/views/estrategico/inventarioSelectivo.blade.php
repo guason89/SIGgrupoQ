@@ -23,7 +23,7 @@
 	    	<br>Grupo Q<b>
   </div>
   <div id="panel-collapse-info" class="collapse in">
-    <form action="#" method="POST" class="form form-vertical" role="form" id="almacenarRegistro" >
+    <form action="{{route('informe-inventario-selectivo')}}" method="POST" class="form form-vertical" role="form" id="almacenarRegistro" >
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <br>   
       <div class="panel-body">
@@ -31,7 +31,7 @@
 			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 	            <div class="input-group" >
 	              <div class="input-group-addon"><b>Fecha Desde :</b></div>
-	              <input type="text" class="form-control datepicker date_masking" id="fechaInicio" name="fechaInicio" placeholder="dd-mm-yyyy">
+	              <input type="text" class="form-control datepicker date_masking" id="fechaInicio" name="fechaInicio" placeholder="yyyy-mm-dd" data-date-format="yyyy-mm-dd">
 	            </div>
 	        </div>        
 		</div>
@@ -40,7 +40,7 @@
 			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 	            <div class="input-group">
 	              <div class="input-group-addon"><b>Fecha Hasta :</b></div>
-	              <input type="date" class="form-control datepicker date_masking" id="fechaFin" name="fechaFin" placeholder="dd-mm-yyyy">	              
+	              <input type="text" class="form-control datepicker date_masking" id="fechaFin" name="fechaFin" placeholder="yyyy-mm-dd" data-date-format="yyyy-mm-dd">	              
 	            </div>
 	        </div>
 		</div>
@@ -66,23 +66,12 @@
 
 <script>
 $(document).ready(function(){
-	$('.date_masking').mask('00-00-0000');
-	
-	/*$('.datepicker').datepicker({
-         weekStart:1,
-         color: 'red'
-        });*/
 
-     alertify.success('si reconoce este plugin.'); 
+	$('.date_masking').mask('0000-00-00');
+
 }); 
 
-$(function() {
-    $( ".datepicker" ).datepicker({
-       appendText:"(dd-mm-yyyy)",
-       dateFormat:"dd-mm-yyyy",
-       
-    });
-});
+
    
 </script>
 @endsection
