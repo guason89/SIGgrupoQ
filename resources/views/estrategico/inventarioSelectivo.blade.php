@@ -40,7 +40,7 @@
 			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 	            <div class="input-group">
 	              <div class="input-group-addon"><b>Fecha Hasta :</b></div>
-	              <input type="text" class="form-control datepicker date_masking" id="fechaFin" name="fechaFin" placeholder="yyyy-mm-dd" data-date-format="yyyy-mm-dd">	              
+	              <input type="text" class="form-control datepicker date_masking" id="fechaFin" name="fechaFin" value="{{ \Carbon\Carbon::now()}}" placeholder="yyyy-mm-dd" data-date-format="yyyy-mm-dd">	              
 	            </div>
 	        </div>
 		</div>

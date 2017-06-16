@@ -43,9 +43,7 @@
                     </a>                    
                 </li>
                 @if(Auth::User()->idPerfil==1)
-                    @include('layouts.menus.admin')
-                    @include('layouts.menus.tactico')
-                    @include('layouts.menus.estrategico')                
+                    @include('layouts.menus.admin')                                 
                 @endif
                 @if(Auth::User()->idPerfil==2)
                     @include('layouts.menus.tactico')                                
@@ -88,11 +86,27 @@
             <div class="container-fluid">
                 @if (session()->has('flash_notification.message'))
                       <div class="alert alert-{{ session('flash_notification.level') }} " id="msj">
-                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                         
                           {!! session('flash_notification.message') !!}
                       </div>
                 @endif
+
+                 <!-- msj de error -->
+                @if (count($errors)>0)
+                    <div class='alert alert-danger' role='alert' id="error">
+                        <strong>Atencion:</strong>
+                        <ul>
+                            @foreach($errors->all() as $error)
+                            <li>{{$error}}</li>                            
+                            @endforeach         
+                        </ul>                        
+                    </div>
+
+                @endif
+
                 @yield('contenido')
+
+               
             </div>
         </div>
 
@@ -128,8 +142,10 @@
 
     <script >
         $('#msj').delay(2000).fadeOut(2000);
+        $('#error').delay(3000).fadeOut(2000);
 
-        $( ".datepicker" ).datepicker();
+        $( ".datepicker" ).datepicker({            
+        });
 
         
      </script>
