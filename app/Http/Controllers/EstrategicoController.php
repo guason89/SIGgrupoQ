@@ -86,15 +86,63 @@ class EstrategicoController extends Controller
     }
 
     public function kilometrajeConsumido(){
-    	return "kilometrajeConsumido";
+    	$date = new Date();
+        $date = $date->format('l, j \d\e F \d\e Y');
+        $data['fecha'] = $date;
+
+        return view('estrategico.kilometrajeConsumido',$data);
+    }
+
+    public function kilometrajeConsumidoPdf(Request $request){
+        $date = new Date();
+        $date = $date->format('l, j \d\e F \d\e Y');
+        $data['fecha'] = $date;
+        $data['usuario'] = Auth::user();
+        $data['fechaInicio'] = $request->fechaInicio;
+        $data['fechaFin'] = $request->fechaFin;
+
+        $pdf = PDF::loadView('estrategico.kilometrajeConsumidoPdf',$data);
+        return $pdf->stream();
     }
 
     public function tiempoDescarga(){
-    	return "tiempoDescarga";
+    	$date = new Date();
+        $date = $date->format('l, j \d\e F \d\e Y');
+        $data['fecha'] = $date;
+
+        return view('estrategico.tiempoDescarga',$data);
+    }
+
+    public function tiempoDescargaPdf(Request $request){
+        $date = new Date();
+        $date = $date->format('l, j \d\e F \d\e Y');
+        $data['fecha'] = $date;
+        $data['usuario'] = Auth::user();
+        $data['fechaInicio'] = $request->fechaInicio;
+        $data['fechaFin'] = $request->fechaFin;
+
+        $pdf = PDF::loadView('estrategico.tiempoDescargaPdf',$data);
+        return $pdf->stream();
     }
 
     public function combustibleConsumido(){
-    	return "combustibleConsumido";
+    	$date = new Date();
+        $date = $date->format('l, j \d\e F \d\e Y');
+        $data['fecha'] = $date;
+
+        return view('estrategico.cantidadCombustible',$data);
+    }
+
+    public function combustibleConsumidoPdf(Request $request){
+        $date = new Date();
+        $date = $date->format('l, j \d\e F \d\e Y');
+        $data['fecha'] = $date;
+        $data['usuario'] = Auth::user();
+        $data['fechaInicio'] = $request->fechaInicio;
+        $data['fechaFin'] = $request->fechaFin;
+
+        $pdf = PDF::loadView('estrategico.cantidadCombustiblePdf',$data);
+        return $pdf->stream();
     }
 }
 

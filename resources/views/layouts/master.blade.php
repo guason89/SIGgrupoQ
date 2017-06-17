@@ -42,13 +42,13 @@
                         <p>INICIO</p>
                     </a>                    
                 </li>
-                @if(Auth::User()->idPerfil==1)
+                @if(Auth::User()->idperfil==1)
                     @include('layouts.menus.admin')                                 
                 @endif
-                @if(Auth::User()->idPerfil==2)
+                @if(Auth::User()->idperfil==2)
                     @include('layouts.menus.tactico')                                
                 @endif
-                @if(Auth::User()->idPerfil==3)
+                @if(Auth::User()->idperfil==3)
                     @include('layouts.menus.estrategico')                                
                 @endif
 

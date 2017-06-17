@@ -10,20 +10,20 @@
 @section('contenido')
 <div class="row">
 		<div class="col-md-9 col-sm-8 col-xs-6">
-			<label>RPTEST03</label>
+			<label>RPTACT02</label>
 		</div>
 		<div class="col-md-3 col-sm-4 col-xs-6">
 			<label>{{$fecha}}</label>
 		</div>
 </div>
-<div class="panel with-nav-tabs panel-success">
+<div class="panel with-nav-tabs panel-warning">
   <div class="panel-heading" style="text-align: center;">    	
-			<b>Cantidad De kilometrajes Consumidos En Flota De Despacho
+			<b>Reporte De Daños De Repuestos Importados
 	    	<br>Area Logistica En Bodegas
 	    	<br>Grupo Q<b>
   </div>
   <div id="panel-collapse-info" class="collapse in">
-    <form action="{{route('informe-kilometraje-consumido')}}" method="POST" class="form form-vertical" role="form" id="almacenarRegistro" >
+    <form action="{{route('informe-daño-repuestos-importados')}}" method="POST" class="form form-vertical" role="form" id="almacenarRegistro" >
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <br>   
       <div class="panel-body">
@@ -43,13 +43,12 @@
 		            </div>
 		        </div>				
 			</div>
+
 			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 				<div class="form-group">
-	                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">   
-	                    <div class="input-group">
-	                        <div class="input-group-addon"><b>SELECCIONE VEHICULO</b></div>
-	                        <select class="form-control" id="vehiculo" name="vehiculo"></select>
-	                    </div>          
+	                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">	                    
+	                        <label>SELECCIONE PROVEEDOR</Label>
+	                        <select class="form-control" id="proveedor" name="proveedor"></select>
 	                </div>                                  
             	</div>            	
 			</div>

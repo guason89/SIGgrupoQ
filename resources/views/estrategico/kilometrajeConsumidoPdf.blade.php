@@ -97,7 +97,7 @@
       <tr>
         <td style="width:20%;">
           <center>
-            <h4>RPTEST01</h4> 
+            <h4>RPTEST03</h4> 
         <font size=1><b>{{$usuario->nombre}}</b><br><i>{{$fecha}}</i></font>
           </center> 
         </td>
@@ -105,13 +105,13 @@
           <center>
             <h3 style="margin:0;padding:0;">
               &nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reporte De Inventario Selectivo De Almacenes De Repuesto&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cantidad De kilometrajes Consumidos En Flota De Despacho&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <p>&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;Area Logistica En Bodegas&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;</p>
-              <strong>Grupo Q, Santa Elena</strong>
+              <strong>Grupo Q</strong>
               <br>
               ___________________________________________________________
             </h3>
@@ -132,17 +132,17 @@
    <div align="center">
      <main>
         <p><b>Desde :</b> {{$fechaInicio}} <b>Hasta :</b> {{$fechaFin}}</p> 
-        <p><b>Centro : </b> S999</p>    
+        <p><b>Vehiculo : </b> C999-999</p>    
 
                <table id="Tabla" style="width:100%;">
           <tbody> 
             <tr>
-               <td width="30" height="40">CODIGO</td>
-               <td width="30" height="40">DESCRIPCION</td>
-               <td width="30" height="40">CANTIDAD SEGUN SISTEMA</td>
-               <td width="30" height="40">INVENTARIO FISICO EFECTUADO</td>
-               <td width="30" height="40">DIFERENCIAS DETECTADAS</td>
-               <td width="30" height="40">COSTO DE DIFERENCIAS</td>       
+               <td width="30" height="40">PLACA VEHICULO</td>
+               <td width="30" height="40">ZONA</td>
+               <td width="30" height="40">FECHA ASIGNADA</td>
+               <td width="30" height="40">KM DE SALIDA</td>
+               <td width="30" height="40">KM DE LLEGADA</td>
+               <td width="30" height="40">KM CONSUMIDOS</td>       
             </tr>
              <tr>
                <td width="30" height="40"></td>

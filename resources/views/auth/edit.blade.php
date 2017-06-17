@@ -65,7 +65,7 @@
                             <div class="col-md-6">
                                 <select name="perfil" class="form-control">
                                     @foreach ($roles as $rol)
-                                        @if($rol->id == $usuario->idPerfil)
+                                        @if($rol->id == $usuario->idperfil)
                                             <option selected value={{$rol->id}} >
                                                 {{$rol->nombre}}
                                             </option>

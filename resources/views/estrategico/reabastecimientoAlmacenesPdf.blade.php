@@ -131,7 +131,8 @@
 
    <div align="center">
      <main>
-        <p><b>Desde :</b> {{$fechaInicio}} <b>Hasta :</b> {{$fechaFin}}</p>     
+        <p><b>Desde :</b> {{$fechaInicio}} <b>Hasta :</b> {{$fechaFin}}</p>
+        <p><b>Centro Salida :</b> S999 <b>Centro Entrada :</b> S999</p>     
 
                <table id="Tabla" style="width:100%;">
           <tbody> 

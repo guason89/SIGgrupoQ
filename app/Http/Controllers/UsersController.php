@@ -72,15 +72,14 @@ class UsersController extends Controller
           'perfil'=>'required|not_in:0',
         ]);
 
-      	User::create([
-            'nombre' =>$request->name,	
-            'usuario' =>$request->usuario,  	    
-            'email' =>$request->email,
-		        'password' => md5($request->password),
-		        'activo' =>'true',	
-		        'idPerfil'=>$request->perfil,
-		        ]
-    		);
+      	$usuario = new User();
+        $usuario->nombre = $request->name;
+        $usuario->usuario = $request->usuario;
+        $usuario->email = $request->email;
+        $usuario->password = md5($request->password); 
+		    $usuario->activo = "true";
+        $usuario->idperfil = $request->perfil;       
+		    $usuario->save();   		
     
        flash('guardado','success');
         $usuarios = User::all();
@@ -103,7 +102,7 @@ class UsersController extends Controller
         ]); 
      
          //recuperar usuario a actualizar
-        $usuario = User::FindOrFail($request->idUsuario);
+        $usuario = User::where('id',$request->idUsuario)->first();
     
         if($request->input('password'))
         {
@@ -111,24 +110,23 @@ class UsersController extends Controller
             'password' => 'confirmed|min:6',
         ]);
 
-           $usuario->update([          
-          'nombre' =>$request->input('nombre'),           
-          'password' => md5($request['password']),                 
-          'email' =>$request->input('email'), 
-          'usuario' =>$request->input('usuario'),         
-          'activo' =>$request->input('activo'),  
-          'idPerfil'=>$request->input('perfil')
-        ]);
+          $usuario->nombre = $request->nombre;
+          $usuario->password = $request->password;
+          $usuario->email = $request->email;
+          $usuario->usuario = $request->usuario;
+          $usuario->activo = $request->activo;
+          $usuario->idperfil = $request->perfil;
+          $usuario->save();
+          
         }
         else
         {
-           $usuario->update([          
-          'nombre' =>$request->input('nombre'),                         
-          'email' =>$request->input('email'), 
-          'usuario' =>$request->input('usuario'),         
-          'activo' =>$request->input('activo'),  
-          'idPerfil'=>$request->input('perfil')
-        ]);
+          $usuario->nombre = $request->nombre;          
+          $usuario->email = $request->email;
+          $usuario->usuario = $request->usuario;
+          $usuario->activo = $request->activo;
+          $usuario->idperfil = $request->perfil;
+          $usuario->save();      
         }
         
         flash('actualizado','success');
