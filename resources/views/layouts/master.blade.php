@@ -13,7 +13,9 @@
     {!! Html::style('css/bootstrap.min.css') !!} 
     {!! Html::style('plugins/datepicker/datepicker.min.css') !!}
     {!! Html::style('plugins/timepicker/bootstrap-timepicker.min.css') !!}
-    {!! Html::style('plugins/font-awesome/css/font-awesome.min.css') !!}      
+    {!! Html::style('plugins/font-awesome/css/font-awesome.min.css') !!}
+    {!! Html::style('plugins/alertifyjs/css/alertify.min.css') !!} 
+    {!! Html::style('plugins/alertifyjs/css/themes/default.min.css') !!}       
     <link href="{{asset('assets/css/light-bootstrap-dashboard.css')}}" rel="stylesheet"/>
    
 

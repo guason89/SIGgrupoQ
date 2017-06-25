@@ -10,7 +10,7 @@
 @section('contenido')
 <div class="row">
 		<div class="col-md-9 col-sm-8 col-xs-6">
-			<label>RPTACT01</label>
+			<label>RPTACT04</label>
 		</div>
 		<div class="col-md-3 col-sm-4 col-xs-6">
 			<label>{{$fecha}}</label>
@@ -18,12 +18,12 @@
 </div>
 <div class="panel with-nav-tabs panel-warning">
   <div class="panel-heading" style="text-align: center;">    	
-			<b>Cantidad De Bultos Por Llegada De Contenedores
+			<b>Reporte De Daños De repuesto Al Interior Del Almacén
 	    	<br>Area Logistica En Bodegas
-	    	<br>Grupo Q, Santa Elena<b>
+	    	<br>Grupo Q<b>
   </div>
   <div id="panel-collapse-info" class="collapse in">
-    <form action="{{route('informe-bultos-contenedor')}}" method="POST" class="form form-vertical" role="form" id="almacenarRegistro" >
+    <form action="{{route('informe-daño-interno-repuestos')}}" method="POST" class="form form-vertical" role="form" id="almacenarRegistro" >
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <br>   
       <div class="panel-body">
@@ -47,11 +47,11 @@
 			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 				<div class="form-group">
 	                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">	                    
-	                        <label>SELECCIONE PROVEEDOR</Label>
-	                        <select class="form-control" id="proveedor" name="proveedor">
-	                        	<option value="">Seleccione un Proveedor</option>
-	                        @foreach($proveedores as $p)
-	                        	<option value="{{$p->idproveedor}}">{{$p->nombre}}</option>
+	                        <label>CENTRO</Label>
+	                        <select class="form-control" id="centro" name="centro">
+	                        	<option value="">Seleccion Un Centro</option>
+	                        @foreach($centros as $c)
+	                        	<option value="{{$c->idcentro}}">{{$c->codigo}}-{{$c->nombre}}</option>
 	                        @endforeach
 	                        </select>
 	                </div>                                  
@@ -79,7 +79,6 @@
 @endsection
 
 @section('js')
-
 @if(Session::has('msjErr'))
 <script>
 	var msg = "<ul class='text-warning'><li>No Se Encontró Ningun Registro En El Rango de Fecha Indicado!</li></ul>";
@@ -88,14 +87,14 @@
 	{{Session::forget('msjErr')}}  
  </script> 
 @endif
-
 <script>
-
 $(document).ready(function(){
 
 	$('.date_masking').mask('0000-00-00');
+
 }); 
- 
+
+
    
 </script>
 @endsection

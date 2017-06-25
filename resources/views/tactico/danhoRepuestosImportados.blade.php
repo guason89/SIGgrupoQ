@@ -48,7 +48,12 @@
 				<div class="form-group">
 	                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">	                    
 	                        <label>SELECCIONE PROVEEDOR</Label>
-	                        <select class="form-control" id="proveedor" name="proveedor"></select>
+	                        <select class="form-control" id="proveedor" name="proveedor">
+	                        	<option value="">Seleccione un Proveedor</option>
+	                        @foreach($proveedores as $p)
+	                        	<option value="{{$p->idproveedor}}">{{$p->nombre}}</option>
+	                        @endforeach
+	                        </select>
 	                </div>                                  
             	</div>            	
 			</div>
@@ -74,7 +79,14 @@
 @endsection
 
 @section('js')
-
+@if(Session::has('msjErr'))
+<script>
+	var msg = "<ul class='text-warning'><li>No Se Encontró Ningun Registro En El Rango de Fecha Indicado!</li></ul>";
+	alertify.alert("Alerta!",msg, function(){    
+  	});
+	{{Session::forget('msjErr')}}  
+ </script> 
+@endif
 <script>
 $(document).ready(function(){
 

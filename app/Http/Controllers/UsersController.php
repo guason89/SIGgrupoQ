@@ -111,7 +111,7 @@ class UsersController extends Controller
         ]);
 
           $usuario->nombre = $request->nombre;
-          $usuario->password = $request->password;
+          $usuario->password = md5($request->password);
           $usuario->email = $request->email;
           $usuario->usuario = $request->usuario;
           $usuario->activo = $request->activo;
