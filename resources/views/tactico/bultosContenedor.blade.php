@@ -20,7 +20,7 @@
   <div class="panel-heading" style="text-align: center;">    	
 			<b>Cantidad De Bultos Por Llegada De Contenedores
 	    	<br>Area Logistica En Bodegas
-	    	<br>Grupo Q, Santa Elena<b>
+	    	<br>Grupo Q<b>
   </div>
   <div id="panel-collapse-info" class="collapse in">
     <form action="{{route('informe-bultos-contenedor')}}" method="POST" class="form form-vertical" role="form" id="almacenarRegistro" >

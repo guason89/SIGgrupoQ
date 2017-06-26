@@ -111,7 +111,7 @@
               &nbsp;&nbsp;&nbsp;Area Logistica En Bodegas&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;</p>
-              <strong>Grupo Q, Santa Elena</strong>
+              <strong>Grupo Q</strong>
               <br>
               ___________________________________________________________
             </h3>

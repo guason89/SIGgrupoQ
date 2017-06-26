@@ -2,16 +2,6 @@
 
 @section('contenido')
 
-@if (count($errors)>0)
-    <div class='alert alert-danger' role='alert'>
-        <strong>Atencion:</strong>
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{$error}}</li>
-            @endforeach         
-        </ul>
-    </div>
-@endif
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
