@@ -125,24 +125,38 @@
    <div align="center">
      <main>
         <p><b>Desde :</b> {{$fechaInicio}} <b>Hasta :</b> {{$fechaFin}}</p> 
-        <p><b>Centro : </b>{{$centro->codigo}}-{{$centro->nombre}}</p>    
+        <p><b>Centro : </b>Santa Elena</p>    
 
                <table id="Tabla" style="width:100%;">
           <tbody> 
             <tr>               
-               <td width="30" height="40">No ORDEN</td>
+               <td width="30" height="40">FACTURA</td>
+               <td width="30" height="40">FECHA</td>
                <td width="30" height="40">CLIENTE</td>
-               <td width="30" height="40">DESTINO</td>
-               <td width="30" height="40">PLACA</td>  
-               <td width="30" height="40">MONTO</td>                                 
+               <td width="30" height="40">No PEDIDO</td>
+               <td width="30" height="40">MARCA</td>
+               <td width="30" height="40">ESTADO</td>  
+               <td width="30" height="40">MONTO FACTURA</td>                                 
             </tr>
-          
+            @foreach($tabla as $t)
+            <tr>              
+             <td width="30" height="40">{{$t->codigofactura}}</td>
+             <td width="30" height="40">{{$t->fecha}}</td>
+             <td width="30" height="40">{{$t->nombre}}</td>
+             <td width="30" height="40">{{$t->nopedido}}</td>
+             <td width="30" height="40">{{$t->marca}}</td>
+             <td width="30" height="40">{{$t->estadoactual}}</td>
+             <td width="30" height="40">{{$t->totalmontofactura}}</td>                               
+            </tr>
+            @endforeach
             <tr>              
              <td width="30" height="40">TOTAL</td>
              <td width="30" height="40"></td>
              <td width="30" height="40"></td>
              <td width="30" height="40"></td>
-             <td width="30" height="40"></td>                              
+             <td width="30" height="40"></td>
+             <td width="30" height="40"></td>
+             <td width="30" height="40">$ {{number_format($t->totalMonto,2,'.',',')}}</td>                               
             </tr>
           </tbody>
         </table>

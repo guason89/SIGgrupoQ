@@ -43,20 +43,6 @@
 		            </div>
 		        </div>				
 			</div>
-
-			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-				<div class="form-group">
-	                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">	                    
-	                        <label>CENTRO</Label>
-	                        <select class="form-control" id="centro" name="centro">
-	                        	<option value="">Seleccion Un Centro</option>
-	                        @foreach($centros as $c)
-	                        	<option value="{{$c->idcentro}}">{{$c->codigo}}-{{$c->nombre}}</option>
-	                        @endforeach
-	                        </select>
-	                </div>                                  
-            	</div>            	
-			</div>
 			       
 		</div>
 		

@@ -139,25 +139,22 @@
             <tr>               
                <td width="30" height="40">POLIZA IMPORTACION</td>
                <td width="30" height="40">No PEDIDO</td>
-               <td width="30" height="40">CANTIDAD DE BULTOS</td>
-               <td width="30" height="40">PRECIO ($)</td> 
-               <td width="30" height="40">TOTAL ($)</td>                     
+               <td width="30" height="40">FECHA FACTURA</td>  
+               <td width="30" height="40">CANTIDAD DE BULTOS</td>                             
             </tr>
             @foreach($tabla as $t)
              <tr>              
                <td width="30" height="40">{{$t->polizaimportacion}}</td>
                <td width="30" height="40">{{$t->nopedido}}</td>
-               <td width="30" height="40">{{number_format($t->cantidadbultos,0,'',',')}}</td>
-               <td width="30" height="40">$ {{number_format($t->precio,2,'.',',')}}</td> 
-               <td width="30" height="40">$ {{number_format($t->montototal,2,'.',',')}}</td>                   
+               <td width="30" height="40">{{$t->fechafactura}}</td>
+               <td width="30" height="40">{{number_format($t->cantidadBultos,0,'',',')}}</td>     
             </tr>
             @endforeach
             <tr>              
                <td width="30" height="40">TOTAL</td>
+               <td width="30" height="40"></td>               
                <td width="30" height="40"></td>
-               <td width="30" height="40">{{number_format($totalBultos,0,'',',')}} BULTOS</td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40">$ {{number_format($totalMonto,2,'.',',')}}</td>                  
+               <td width="30" height="40">{{number_format($totalBultos,0,'',',')}} BULTOS</td>                  
             </tr>
           </tbody>
         </table>

@@ -1,0 +1,201 @@
+idcliente;nombre;nit;direccion;cuentahabilitada
+1;Fidelia Elva Paniagua de Lopez;60254877815412;Santa Tecla  La Libertad;TRUE
+2;Talleres Munoz S.A de S.V;61485256320154;Izalco  Sonsonate;TRUE
+3;Aldo Fabricio Rivera Espinoza;62715634824845;Ahuachapan  Ahuachapan;TRUE
+4;Nueva Llantilandia S.A de S.V;60254877815412;San Salvador  San Salvador;TRUE
+5;GGI EUROPEAN TUNNING S.A de S.V;61485256320154;Santa Elena  La Libertad;TRUE
+6;Gladis Dinora Suncin de Rivera;62715634824845;Antiguo Cuscatlan  La Libertad;TRUE
+7;Carlos Isidro Reyes Castillo;83842991434414;San Salvador  San Salvador;TRUE
+8;Maria Rubinia Portillo Vallejo;84124220806920;Ciudad Delgado  San Salvador;TRUE
+9;Carlos Humberto Romero Sanchez;84405450179427;Sonzacate  Sonsonate;TRUE
+10;Ulises Olmedo Sanchez;84686679551933;San Salvador  San Salvador;TRUE
+11;Batres AUTOPARTS S.A de S.V;84967908924440;Metapan  Santa Ana;TRUE
+12;ACOETMISAB DE R.L;85249138296947;Ilopango  San Salvador;TRUE
+13;TERRASEN S.A de S.V;85530367669453;Sensuntepeque  cabanas;TRUE
+14;Jose Oscar Minero;85811597041960;Sonsonate  Sonsonate;TRUE
+15;Arnoldo Leoncio Pinto Perez;86092826414467;Lourdes Colon  La Libertad;TRUE
+16;Jose Roberto Romero Quijada;86374055786973;El Paraiso  Chalatenango;TRUE
+17;Emilio Contreras Trejo;86655285159480;San Martin  San Salvador;TRUE
+18;Comercializadora Internacional;86936514531986;Antiguo Cuscatlan  La Libertad;TRUE
+19;Miguel Angel Arce;87217743904493;Cojutepeque  Cuscatlan;TRUE
+20;DINANT de El Salvador S.A de S.V;87498973277000;Ilopango  San Salvador;TRUE
+21;AUTO SERVICIO HERNANDEZ;87780202649506;San Salvador  San Salvador;TRUE
+22;Fidelia Elva Paniagua de Lopez;88061432022013;Santa Tecla  La Libertad;TRUE
+23;Talleres Munoz S.A de S.V;88342661394520;Izalco  Sonsonate;TRUE
+24;Aldo Fabricio Rivera Espinoza;88623890767026;Ahuachapan  Ahuachapan;TRUE
+25;Nueva Llantilandia S.A de S.V;60254877815412;San Salvador  San Salvador;TRUE
+26;GGI EUROPEAN TUNNING S.A de S.V;61485256320154;Santa Elena  La Libertad;TRUE
+27;Gladis Dinora Suncin de Rivera;62715634824845;Antiguo Cuscatlan  La Libertad;TRUE
+28;Carlos Isidro Reyes Castillo;60254877815412;San Salvador  San Salvador;TRUE
+29;Maria Rubinia Portillo Vallejo;61485256320154;Ciudad Delgado  San Salvador;TRUE
+30;Carlos Humberto Romero Sanchez;62715634824845;Sonzacate  Sonsonate;TRUE
+31;Ulises Olmedo Sanchez;83842991434414;San Salvador  San Salvador;TRUE
+32;Batres AUTOPARTS S.A de S.V;84124220806920;Metapan  Santa Ana;TRUE
+33;ACOETMISAB DE R.L;84405450179427;Ilopango  San Salvador;TRUE
+34;TERRASEN S.A de S.V;84686679551933;Sensuntepeque  cabanas;TRUE
+35;Jose Oscar Minero;84967908924440;Sonsonate  Sonsonate;TRUE
+36;Arnoldo Leoncio Pinto Perez;85249138296947;Lourdes Colon  La Libertad;TRUE
+37;Jose Roberto Romero Quijada;85530367669453;El Paraiso  Chalatenango;TRUE
+38;Emilio Contreras Trejo;85811597041960;San Martin  San Salvador;TRUE
+39;Comercializadora Internacional;86092826414467;Antiguo Cuscatlan  La Libertad;TRUE
+40;Miguel Angel Arce;86374055786973;Cojutepeque  Cuscatlan;TRUE
+41;DINANT de El Salvador S.A de S.V;86655285159480;Ilopango  San Salvador;TRUE
+42;AUTO SERVICIO HERNANDEZ;86936514531986;San Salvador  San Salvador;TRUE
+43;Fidelia Elva Paniagua de Lopez;87217743904493;Santa Tecla  La Libertad;TRUE
+44;Talleres Munoz S.A de S.V;87498973277000;Izalco  Sonsonate;TRUE
+45;Aldo Fabricio Rivera Espinoza;87780202649506;Ahuachapan  Ahuachapan;TRUE
+46;Nueva Llantilandia S.A de S.V;88061432022013;San Salvador  San Salvador;TRUE
+47;GGI EUROPEAN TUNNING S.A de S.V;88342661394520;Santa Elena  La Libertad;TRUE
+48;Gladis Dinora Suncin de Rivera;88623890767026;Antiguo Cuscatlan  La Libertad;TRUE
+49;Carlos Isidro Reyes Castillo;60254877815412;San Salvador  San Salvador;TRUE
+50;Maria Rubinia Portillo Vallejo;61485256320154;Ciudad Delgado  San Salvador;TRUE
+51;Carlos Humberto Romero Sanchez;62715634824845;Sonzacate  Sonsonate;TRUE
+52;Ulises Olmedo Sanchez;60254877815412;San Salvador  San Salvador;TRUE
+53;Batres AUTOPARTS S.A de S.V;61485256320154;Metapan  Santa Ana;TRUE
+54;ACOETMISAB DE R.L;62715634824845;Ilopango  San Salvador;TRUE
+55;TERRASEN S.A de S.V;83842991434414;Sensuntepeque  cabanas;TRUE
+56;Jose Oscar Minero;84124220806920;Sonsonate  Sonsonate;TRUE
+57;Arnoldo Leoncio Pinto Perez;84405450179427;Lourdes Colon  La Libertad;TRUE
+58;Jose Roberto Romero Quijada;84686679551933;El Paraiso  Chalatenango;TRUE
+59;Emilio Contreras Trejo;84967908924440;San Martin  San Salvador;TRUE
+60;Comercializadora Internacional;85249138296947;Antiguo Cuscatlan  La Libertad;TRUE
+61;Miguel Angel Arce;85530367669453;Cojutepeque  Cuscatlan;TRUE
+62;DINANT de El Salvador S.A de S.V;85811597041960;Ilopango  San Salvador;TRUE
+63;AUTO SERVICIO HERNANDEZ;86092826414467;San Salvador  San Salvador;TRUE
+64;Fidelia Elva Paniagua de Lopez;86374055786973;Santa Tecla  La Libertad;TRUE
+65;Talleres Munoz S.A de S.V;86655285159480;Izalco  Sonsonate;TRUE
+66;Aldo Fabricio Rivera Espinoza;86936514531986;Ahuachapan  Ahuachapan;TRUE
+67;Nueva Llantilandia S.A de S.V;87217743904493;San Salvador  San Salvador;TRUE
+68;GGI EUROPEAN TUNNING S.A de S.V;87498973277000;Santa Elena  La Libertad;TRUE
+69;Gladis Dinora Suncin de Rivera;87780202649506;Antiguo Cuscatlan  La Libertad;TRUE
+70;Carlos Isidro Reyes Castillo;88061432022013;San Salvador  San Salvador;TRUE
+71;Maria Rubinia Portillo Vallejo;88342661394520;Ciudad Delgado  San Salvador;TRUE
+72;Carlos Humberto Romero Sanchez;88623890767026;Sonzacate  Sonsonate;TRUE
+73;Ulises Olmedo Sanchez;60254877815412;San Salvador  San Salvador;TRUE
+74;Batres AUTOPARTS S.A de S.V;61485256320154;Metapan  Santa Ana;TRUE
+75;ACOETMISAB DE R.L;62715634824845;Ilopango  San Salvador;TRUE
+76;TERRASEN S.A de S.V;60254877815412;Sensuntepeque  cabanas;TRUE
+77;Jose Oscar Minero;61485256320154;Sonsonate  Sonsonate;TRUE
+78;Arnoldo Leoncio Pinto Perez;62715634824845;Lourdes Colon  La Libertad;TRUE
+79;Jose Roberto Romero Quijada;83842991434414;El Paraiso  Chalatenango;TRUE
+80;Emilio Contreras Trejo;84124220806920;San Martin  San Salvador;TRUE
+81;Comercializadora Internacional;84405450179427;Antiguo Cuscatlan  La Libertad;TRUE
+82;Miguel Angel Arce;84686679551933;Cojutepeque  Cuscatlan;TRUE
+83;DINANT de El Salvador S.A de S.V;84967908924440;Ilopango  San Salvador;TRUE
+84;AUTO SERVICIO HERNANDEZ;85249138296947;San Salvador  San Salvador;TRUE
+85;Carlos Isidro Reyes Castillo;85530367669453;San Salvador  San Salvador;TRUE
+86;Maria Rubinia Portillo Vallejo;85811597041960;Ciudad Delgado  San Salvador;TRUE
+87;Carlos Humberto Romero Sanchez;86092826414467;Sonzacate  Sonsonate;TRUE
+88;Ulises Olmedo Sanchez;86374055786973;San Salvador  San Salvador;TRUE
+89;Batres AUTOPARTS S.A de S.V;86655285159480;Metapan  Santa Ana;TRUE
+90;ACOETMISAB DE R.L;86936514531986;Ilopango  San Salvador;TRUE
+91;TERRASEN S.A de S.V;87217743904493;Sensuntepeque  cabanas;TRUE
+92;Jose Oscar Minero;87498973277000;Sonsonate  Sonsonate;TRUE
+93;Arnoldo Leoncio Pinto Perez;87780202649506;Lourdes Colon  La Libertad;TRUE
+94;Jose Roberto Romero Quijada;88061432022013;El Paraiso  Chalatenango;TRUE
+95;Emilio Contreras Trejo;88342661394520;San Martin  San Salvador;TRUE
+96;Comercializadora Internacional;88623890767026;Antiguo Cuscatlan  La Libertad;TRUE
+97;Miguel Angel Arce;87780202649506;Cojutepeque  Cuscatlan;TRUE
+98;DINANT de El Salvador S.A de S.V;88061432022013;Ilopango  San Salvador;TRUE
+99;AUTO SERVICIO HERNANDEZ;88342661394520;San Salvador  San Salvador;TRUE
+100;Miguel Angel Arce;88623890767026;Cojutepeque  Cuscatlan;TRUE
+101;Fidelia Elva Paniagua de Lopez;60254877815412;Santa Tecla  La Libertad;TRUE
+102;Talleres Munoz S.A de S.V;61485256320154;Izalco  Sonsonate;TRUE
+103;Aldo Fabricio Rivera Espinoza;62715634824845;Ahuachapan  Ahuachapan;TRUE
+104;Nueva Llantilandia S.A de S.V;60254877815412;San Salvador  San Salvador;TRUE
+105;GGI EUROPEAN TUNNING S.A de S.V;61485256320154;Santa Elena  La Libertad;TRUE
+106;Gladis Dinora Suncin de Rivera;62715634824845;Antiguo Cuscatlan  La Libertad;TRUE
+107;Carlos Isidro Reyes Castillo;83842991434414;San Salvador  San Salvador;TRUE
+108;Maria Rubinia Portillo Vallejo;84124220806920;Ciudad Delgado  San Salvador;TRUE
+109;Carlos Humberto Romero Sanchez;84405450179427;Sonzacate  Sonsonate;TRUE
+110;Ulises Olmedo Sanchez;84686679551933;San Salvador  San Salvador;TRUE
+111;Batres AUTOPARTS S.A de S.V;84967908924440;Metapan  Santa Ana;TRUE
+112;ACOETMISAB DE R.L;85249138296947;Ilopango  San Salvador;TRUE
+113;TERRASEN S.A de S.V;85530367669453;Sensuntepeque  cabanas;TRUE
+114;Jose Oscar Minero;85811597041960;Sonsonate  Sonsonate;TRUE
+115;Arnoldo Leoncio Pinto Perez;86092826414467;Lourdes Colon  La Libertad;TRUE
+116;Jose Roberto Romero Quijada;86374055786973;El Paraiso  Chalatenango;TRUE
+117;Emilio Contreras Trejo;86655285159480;San Martin  San Salvador;TRUE
+118;Comercializadora Internacional;86936514531986;Antiguo Cuscatlan  La Libertad;TRUE
+119;Miguel Angel Arce;87217743904493;Cojutepeque  Cuscatlan;TRUE
+120;DINANT de El Salvador S.A de S.V;87498973277000;Ilopango  San Salvador;TRUE
+121;AUTO SERVICIO HERNANDEZ;87780202649506;San Salvador  San Salvador;TRUE
+122;Fidelia Elva Paniagua de Lopez;88061432022013;Santa Tecla  La Libertad;TRUE
+123;Talleres Munoz S.A de S.V;88342661394520;Izalco  Sonsonate;TRUE
+124;Aldo Fabricio Rivera Espinoza;88623890767026;Ahuachapan  Ahuachapan;TRUE
+125;Nueva Llantilandia S.A de S.V;60254877815412;San Salvador  San Salvador;TRUE
+126;GGI EUROPEAN TUNNING S.A de S.V;61485256320154;Santa Elena  La Libertad;TRUE
+127;Gladis Dinora Suncin de Rivera;62715634824845;Antiguo Cuscatlan  La Libertad;TRUE
+128;Carlos Isidro Reyes Castillo;60254877815412;San Salvador  San Salvador;TRUE
+129;Maria Rubinia Portillo Vallejo;61485256320154;Ciudad Delgado  San Salvador;TRUE
+130;Carlos Humberto Romero Sanchez;62715634824845;Sonzacate  Sonsonate;TRUE
+131;Ulises Olmedo Sanchez;83842991434414;San Salvador  San Salvador;TRUE
+132;Batres AUTOPARTS S.A de S.V;84124220806920;Metapan  Santa Ana;TRUE
+133;ACOETMISAB DE R.L;84405450179427;Ilopango  San Salvador;TRUE
+134;TERRASEN S.A de S.V;84686679551933;Sensuntepeque  cabanas;TRUE
+135;Jose Oscar Minero;84967908924440;Sonsonate  Sonsonate;TRUE
+136;Arnoldo Leoncio Pinto Perez;85249138296947;Lourdes Colon  La Libertad;TRUE
+137;Jose Roberto Romero Quijada;85530367669453;El Paraiso  Chalatenango;TRUE
+138;Emilio Contreras Trejo;85811597041960;San Martin  San Salvador;TRUE
+139;Comercializadora Internacional;86092826414467;Antiguo Cuscatlan  La Libertad;TRUE
+140;Miguel Angel Arce;86374055786973;Cojutepeque  Cuscatlan;TRUE
+141;DINANT de El Salvador S.A de S.V;86655285159480;Ilopango  San Salvador;TRUE
+142;AUTO SERVICIO HERNANDEZ;86936514531986;San Salvador  San Salvador;TRUE
+143;Fidelia Elva Paniagua de Lopez;87217743904493;Santa Tecla  La Libertad;TRUE
+144;Talleres Munoz S.A de S.V;87498973277000;Izalco  Sonsonate;TRUE
+145;Aldo Fabricio Rivera Espinoza;87780202649506;Ahuachapan  Ahuachapan;TRUE
+146;Nueva Llantilandia S.A de S.V;88061432022013;San Salvador  San Salvador;TRUE
+147;GGI EUROPEAN TUNNING S.A de S.V;88342661394520;Santa Elena  La Libertad;TRUE
+148;Gladis Dinora Suncin de Rivera;88623890767026;Antiguo Cuscatlan  La Libertad;TRUE
+149;Carlos Isidro Reyes Castillo;60254877815412;San Salvador  San Salvador;TRUE
+150;Maria Rubinia Portillo Vallejo;61485256320154;Ciudad Delgado  San Salvador;TRUE
+151;Carlos Humberto Romero Sanchez;62715634824845;Sonzacate  Sonsonate;TRUE
+152;Ulises Olmedo Sanchez;60254877815412;San Salvador  San Salvador;TRUE
+153;Batres AUTOPARTS S.A de S.V;61485256320154;Metapan  Santa Ana;TRUE
+154;ACOETMISAB DE R.L;62715634824845;Ilopango  San Salvador;TRUE
+155;TERRASEN S.A de S.V;83842991434414;Sensuntepeque  cabanas;TRUE
+156;Jose Oscar Minero;84124220806920;Sonsonate  Sonsonate;TRUE
+157;Arnoldo Leoncio Pinto Perez;84405450179427;Lourdes Colon  La Libertad;TRUE
+158;Jose Roberto Romero Quijada;84686679551933;El Paraiso  Chalatenango;TRUE
+159;Emilio Contreras Trejo;84967908924440;San Martin  San Salvador;TRUE
+160;Comercializadora Internacional;85249138296947;Antiguo Cuscatlan  La Libertad;TRUE
+161;Miguel Angel Arce;85530367669453;Cojutepeque  Cuscatlan;TRUE
+162;DINANT de El Salvador S.A de S.V;85811597041960;Ilopango  San Salvador;TRUE
+163;AUTO SERVICIO HERNANDEZ;86092826414467;San Salvador  San Salvador;TRUE
+164;Fidelia Elva Paniagua de Lopez;86374055786973;Santa Tecla  La Libertad;TRUE
+165;Talleres Munoz S.A de S.V;86655285159480;Izalco  Sonsonate;TRUE
+166;Aldo Fabricio Rivera Espinoza;86936514531986;Ahuachapan  Ahuachapan;TRUE
+167;Nueva Llantilandia S.A de S.V;87217743904493;San Salvador  San Salvador;TRUE
+168;GGI EUROPEAN TUNNING S.A de S.V;87498973277000;Santa Elena  La Libertad;TRUE
+169;Gladis Dinora Suncin de Rivera;87780202649506;Antiguo Cuscatlan  La Libertad;TRUE
+170;Carlos Isidro Reyes Castillo;88061432022013;San Salvador  San Salvador;TRUE
+171;Maria Rubinia Portillo Vallejo;88342661394520;Ciudad Delgado  San Salvador;TRUE
+172;Carlos Humberto Romero Sanchez;88623890767026;Sonzacate  Sonsonate;TRUE
+173;Ulises Olmedo Sanchez;60254877815412;San Salvador  San Salvador;TRUE
+174;Batres AUTOPARTS S.A de S.V;61485256320154;Metapan  Santa Ana;TRUE
+175;ACOETMISAB DE R.L;62715634824845;Ilopango  San Salvador;TRUE
+176;TERRASEN S.A de S.V;60254877815412;Sensuntepeque  cabanas;TRUE
+177;Jose Oscar Minero;61485256320154;Sonsonate  Sonsonate;TRUE
+178;Arnoldo Leoncio Pinto Perez;62715634824845;Lourdes Colon  La Libertad;TRUE
+179;Jose Roberto Romero Quijada;83842991434414;El Paraiso  Chalatenango;TRUE
+180;Emilio Contreras Trejo;84124220806920;San Martin  San Salvador;TRUE
+181;Comercializadora Internacional;84405450179427;Antiguo Cuscatlan  La Libertad;TRUE
+182;Miguel Angel Arce;84686679551933;Cojutepeque  Cuscatlan;TRUE
+183;DINANT de El Salvador S.A de S.V;84967908924440;Ilopango  San Salvador;TRUE
+184;AUTO SERVICIO HERNANDEZ;85249138296947;San Salvador  San Salvador;TRUE
+185;Carlos Isidro Reyes Castillo;85530367669453;San Salvador  San Salvador;TRUE
+186;Maria Rubinia Portillo Vallejo;85811597041960;Ciudad Delgado  San Salvador;TRUE
+187;Carlos Humberto Romero Sanchez;86092826414467;Sonzacate  Sonsonate;TRUE
+188;Ulises Olmedo Sanchez;86374055786973;San Salvador  San Salvador;TRUE
+189;Batres AUTOPARTS S.A de S.V;86655285159480;Metapan  Santa Ana;TRUE
+190;ACOETMISAB DE R.L;86936514531986;Ilopango  San Salvador;TRUE
+191;TERRASEN S.A de S.V;87217743904493;Sensuntepeque  cabanas;TRUE
+192;Jose Oscar Minero;87498973277000;Sonsonate  Sonsonate;TRUE
+193;Arnoldo Leoncio Pinto Perez;87780202649506;Lourdes Colon  La Libertad;TRUE
+194;Jose Roberto Romero Quijada;88061432022013;El Paraiso  Chalatenango;TRUE
+195;Emilio Contreras Trejo;88342661394520;San Martin  San Salvador;TRUE
+196;Comercializadora Internacional;88623890767026;Antiguo Cuscatlan  La Libertad;TRUE
+197;Miguel Angel Arce;87780202649506;Cojutepeque  Cuscatlan;TRUE
+198;DINANT de El Salvador S.A de S.V;88061432022013;Ilopango  San Salvador;TRUE
+199;AUTO SERVICIO HERNANDEZ;88342661394520;San Salvador  San Salvador;TRUE
+200;Miguel Angel Arce;88623890767026;Cojutepeque  Cuscatlan;TRUE

@@ -1,0 +1,6 @@
+idtipoagravio;nombre;descripcion
+1;Quebrado;Averia recibido desde fabrica
+2;Astillado;Averia realizada envio importacion
+3;Averia;mal almacenaje disfuncional
+4;Quebrado; realizada por un empleado interno
+5;Perdido;Extraviado por proveedor

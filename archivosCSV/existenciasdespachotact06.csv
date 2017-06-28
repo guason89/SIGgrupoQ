@@ -1,0 +1,131 @@
+id;materialdespachonombre;tipodatosnombre;cantidadmensual;costototalmensual;fecha;cantidaddisponibles;saldodisponible
+1;Carton;Despacho ;2;3.45;2016-01-05;0;2
+2;Lazon;Mayoreo;4;2.31;2016-01-06;1;5
+3;Tirro;Despacho ;6;4.60;2016-01-07;2;8
+4;Fleje;Mayoreo;8;4.60;2016-01-08;3;11
+5;Papel;Mayoreo;10;5.18;2016-01-09;4;14
+6;Bolsas;Despacho ;12;5.75;2016-01-10;0;12
+7;Carton;Despacho ;14;6.33;2016-01-11;1;15
+8;Lazon;Despacho ;16;6.90;2016-01-12;2;18
+9;Tirro;Despacho ;18;7.48;2016-01-13;3;21
+10;Fleje;Despacho ;20;8.05;2016-01-14;4;24
+11;Papel;Mayoreo;22;8.63;2016-01-15;0;22
+12;Bolsas;Mayoreo;24;9.20;2016-01-16;1;25
+13;Carton;Mayoreo;26;9.78;2016-01-17;2;28
+14;Lazon;Despacho ;28;10.35;2016-01-18;3;31
+15;Tirro;Mayoreo;30;10.93;2016-01-19;4;34
+16;Fleje;Despacho ;32;11.50;2016-01-20;0;32
+17;Papel;Mayoreo;34;12.08;2016-01-21;1;35
+18;Bolsas;Mayoreo;2;12.65;2016-01-22;2;4
+19;Carton;Despacho ;4;13.23;2016-01-23;3;7
+20;Lazon;Despacho ;6;13.80;2016-01-24;4;10
+21;Tirro;Despacho ;8;14.38;2016-01-25;0;8
+22;Fleje;Despacho ;10;14.95;2016-01-26;1;11
+23;Papel;Despacho ;12;15.53;2016-01-27;2;14
+24;Bolsas;Mayoreo;14;16.10;2016-01-28;3;17
+25;Carton;Mayoreo;16;16.68;2016-01-29;4;20
+26;Lazon;Mayoreo;18;17.25;2016-01-30;0;18
+27;Tirro;Despacho ;20;17.83;2016-01-31;1;21
+28;Fleje;Mayoreo;22;18.40;2016-02-01;2;24
+29;Papel;Despacho ;24;18.98;2016-02-02;3;27
+30;Bolsas;Mayoreo;26;19.55;2016-02-03;4;30
+31;Carton;Mayoreo;28;20.13;2016-02-04;0;28
+32;Lazon;Despacho ;30;20.70;2016-02-05;1;31
+33;Tirro;Despacho ;32;21.28;2016-02-06;2;34
+34;Fleje;Despacho ;34;21.85;2016-02-07;3;37
+35;Papel;Despacho ;2;22.43;2016-02-08;4;6
+36;Bolsas;Despacho ;4;23.00;2016-02-09;0;4
+37;Carton;Mayoreo;6;23.58;2016-02-10;1;7
+38;Lazon;Mayoreo;8;24.15;2016-02-11;2;10
+39;Tirro;Mayoreo;10;24.73;2016-02-12;3;13
+40;Fleje;Despacho ;12;25.30;2016-02-13;4;16
+41;Papel;Mayoreo;14;25.88;2016-02-14;0;14
+42;Bolsas;Despacho ;16;26.45;2016-02-15;1;17
+43;Carton;Mayoreo;18;27.03;2016-02-16;2;20
+44;Lazon;Mayoreo;20;27.60;2016-02-17;3;23
+45;Tirro;Despacho ;22;28.18;2016-02-18;4;26
+46;Fleje;Despacho ;24;28.75;2016-02-19;0;24
+47;Papel;Despacho ;26;29.33;2016-02-20;1;27
+48;Bolsas;Despacho ;28;29.90;2016-02-21;2;30
+49;Carton;Despacho ;30;30.48;2016-02-22;3;33
+50;Lazon;Mayoreo;32;31.05;2016-02-23;4;36
+51;Tirro;Mayoreo;34;31.63;2016-02-24;0;34
+52;Fleje;Mayoreo;2;32.20;2016-02-25;1;3
+53;Papel;Despacho ;4;32.78;2016-02-26;2;6
+54;Bolsas;Mayoreo;6;33.35;2016-02-27;3;9
+55;Carton;Despacho ;8;33.93;2016-02-28;4;12
+56;Lazon;Mayoreo;10;34.50;2016-02-29;0;10
+57;Tirro;Mayoreo;12;35.08;2016-03-01;1;13
+58;Fleje;Despacho ;14;35.65;2016-03-02;2;16
+59;Papel;Despacho ;16;36.23;2016-03-03;3;19
+60;Bolsas;Despacho ;18;36.80;2016-03-04;4;22
+61;Carton;Despacho ;20;37.38;2016-03-05;0;20
+62;Lazon;Despacho ;22;37.95;2016-03-06;1;23
+63;Tirro;Mayoreo;24;38.53;2016-03-07;2;26
+64;Fleje;Mayoreo;26;39.10;2016-03-08;3;29
+65;Papel;Mayoreo;28;39.68;2016-03-09;4;32
+66;Bolsas;Despacho ;30;40.25;2016-03-10;0;30
+67;Carton;Mayoreo;32;40.83;2016-03-11;1;33
+68;Lazon;Despacho ;34;41.40;2016-03-12;2;36
+69;Tirro;Mayoreo;2;41.98;2016-03-13;3;5
+70;Fleje;Mayoreo;4;42.55;2016-03-14;4;8
+71;Papel;Despacho ;6;43.13;2016-03-15;0;6
+72;Bolsas;Despacho ;8;43.70;2016-03-16;1;9
+73;Carton;Despacho ;10;44.28;2016-03-17;2;12
+74;Lazon;Despacho ;12;44.85;2016-03-18;3;15
+75;Tirro;Despacho ;14;45.43;2016-03-19;4;18
+76;Fleje;Mayoreo;16;46.00;2016-03-20;0;16
+77;Papel;Mayoreo;18;46.58;2016-03-21;1;19
+78;Bolsas;Mayoreo;20;47.15;2016-03-22;2;22
+79;Carton;Despacho ;22;47.73;2016-03-23;3;25
+80;Lazon;Mayoreo;24;48.30;2016-03-24;4;28
+81;Tirro;Despacho ;26;48.88;2016-03-25;0;26
+82;Fleje;Mayoreo;28;49.45;2016-03-26;1;29
+83;Papel;Mayoreo;30;50.03;2016-03-27;2;32
+84;Bolsas;Despacho ;32;50.60;2016-03-28;3;35
+85;Carton;Despacho ;34;51.18;2016-03-29;4;38
+86;Lazon;Despacho ;2;51.75;2016-03-30;0;2
+87;Tirro;Despacho ;4;52.33;2016-03-31;1;5
+88;Fleje;Despacho ;6;52.90;2016-04-01;2;8
+89;Papel;Mayoreo;8;53.48;2016-04-02;3;11
+90;Bolsas;Mayoreo;10;54.05;2016-04-03;4;14
+91;Carton;Mayoreo;12;3.45;2016-04-04;0;12
+92;Lazon;Despacho ;14;2.31;2016-04-05;1;15
+93;Tirro;Mayoreo;16;4.60;2016-04-06;2;18
+94;Fleje;Despacho ;18;4.60;2016-04-07;3;21
+95;Papel;Mayoreo;20;5.18;2016-04-08;4;24
+96;Bolsas;Mayoreo;22;5.75;2016-04-09;0;22
+97;Carton;Despacho ;24;6.33;2016-04-10;1;25
+98;Lazon;Despacho ;26;6.90;2016-04-11;2;28
+99;Tirro;Despacho ;28;7.48;2016-04-12;3;31
+100;Fleje;Despacho ;30;8.05;2016-04-13;4;34
+101;Papel;Despacho ;32;8.63;2016-04-14;0;32
+102;Bolsas;Mayoreo;34;9.20;2016-04-15;1;35
+103;Carton;Mayoreo;2;9.78;2016-04-16;2;4
+104;Lazon;Mayoreo;4;10.35;2016-04-17;3;7
+105;Tirro;Despacho ;6;10.93;2016-04-18;4;10
+106;Fleje;Mayoreo;8;11.50;2016-04-19;0;8
+107;Papel;Despacho ;10;12.08;2016-04-20;1;11
+108;Bolsas;Mayoreo;12;12.65;2016-04-21;2;14
+109;Carton;Mayoreo;14;13.23;2016-04-22;3;17
+110;Lazon;Despacho ;16;13.80;2016-04-23;4;20
+111;Tirro;Despacho ;18;14.38;2016-04-24;0;18
+112;Fleje;Despacho ;20;14.95;2016-04-25;1;21
+113;Papel;Despacho ;22;15.53;2016-04-26;2;24
+114;Bolsas;Despacho ;24;16.10;2016-04-27;3;27
+115;Carton;Mayoreo;26;16.68;2016-04-28;4;30
+116;Lazon;Mayoreo;28;17.25;2016-04-29;0;28
+117;Tirro;Mayoreo;30;17.83;2016-04-30;1;31
+118;Fleje;Despacho ;32;18.40;2016-05-01;2;34
+119;Papel;Despacho ;34;18.98;2016-05-02;3;37
+120;Bolsas;Despacho ;2;19.55;2016-05-03;4;6
+121;Carton;Despacho ;4;20.13;2016-05-04;0;4
+122;Lazon;Mayoreo;6;20.70;2016-05-05;1;7
+123;Tirro;Mayoreo;8;21.28;2016-05-06;2;10
+124;Fleje;Mayoreo;10;21.85;2016-05-07;3;13
+125;Papel;Despacho ;12;22.43;2016-05-08;4;16
+126;Bolsas;Mayoreo;14;23.00;2016-05-09;0;14
+127;Carton;Despacho ;16;23.58;2016-05-10;1;17
+128;Lazon;Mayoreo;18;24.15;2016-05-11;2;20
+129;Tirro;Mayoreo;20;24.73;2016-05-12;3;23
+130;Fleje;Despacho ;22;25.30;2016-05-13;4;26

@@ -125,26 +125,26 @@
                <table id="Tabla" style="width:100%;">
           <tbody> 
             <tr>               
-               <td width="30" height="40">PRODUCTO</td>
+               <td width="30" height="40">CODIGO</td>
+               <td width="30" height="40">NOMBRE_PRODUCTO</td>
                <td width="30" height="40">NOMBRE_ALMACEN</td>
                <td width="30" height="40">AVERIA</td>
-               <td width="30" height="40">DESCRIPCION_AVERIA</td>  
-               <td width="30" height="40">UBICACION</td> 
+               <td width="30" height="40">DESCRIPCION_AVERIA</td>       
                <td width="30" height="40">FECHA</td> 
-               <td width="30" height="40">CANTIDAD A SUSTITUIR</td>
-               <td width="30" height="40">PRECIO POR UNIDAD</td> 
+               <td width="30" height="40">PRECIO UNIDAD</td>
+               <td width="30" height="40">UNIDADES A SUSTITUIR</td> 
                <td width="30" height="40">MONTO A REINREGRAR</td>                    
             </tr>
             @foreach($tabla as $t)
              <tr>              
-             <td width="30" height="40">{{$t->producto}}</td>
+             <td width="30" height="40">{{$t->codigo}}</td>
+             <td width="30" height="40">{{$t->nombre}}</td>
              <td width="30" height="40">{{$t->almacen}}</td>
              <td width="30" height="40">{{$t->averia}}</td>
              <td width="30" height="40">{{$t->descripcion}}</td>
-             <td width="30" height="40">{{$t->ubicacion}}</td>
              <td width="30" height="40">{{$t->fechareportado}}</td>
-             <td width="30" height="40">{{number_format($t->unidadestotales,0,'',',')}}</td>
              <td width="30" height="40">$ {{number_format($t->precio,2,'.',',')}}</td>
+             <td width="30" height="40">{{number_format($t->unidadestotales,0,'',',')}}</td>        
              <td width="30" height="40">$ {{number_format($t->montototal,2,'.',',')}}</td>                  
             </tr>
             @endforeach
@@ -155,9 +155,9 @@
              <td width="30" height="40"></td>
              <td width="30" height="40"></td>
              <td width="30" height="40"></td>
-             <td width="30" height="40">{{number_format($totalSustituir,0,'',',')}}</td>
              <td width="30" height="40"></td>
-             <td width="30" height="40">$ {{number_format($totalMonto,2,'.',',')}}</td>                  
+             <td width="30" height="40">{{number_format($totalSustituir,0,'',',')}}</td>
+             <td width="30" height="40">$ {{number_format($totalMonto,2,'.',',')}}</td>              
             </tr>
           </tbody>
         </table>

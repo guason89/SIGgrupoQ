@@ -1,0 +1,4 @@
+idtipopago;nombre;descripcion
+1;contado;pago en efectivo en moneda nacional
+2;credito;pago a plazos
+3;cheque;pago emitido con un documento de pago en moneda nacional

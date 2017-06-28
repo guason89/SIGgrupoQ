@@ -50,39 +50,32 @@ class TacticoController extends Controller
                     ->where('idproveedor',$request->proveedor)->first();
                    
 
-        $tabla =DB::table('proveedorimportacion as pi')
-        ->join('importacionfactura as ifa','pi.idproveedorimportacion','=','ifa.idproveedorimportacion')
-        ->join('facturaordenenvio as fe','ifa.idimportacionfactura','=','fe.idimportacionfactura')
-        ->select('pi.polizaimportacion','fe.nopedido','ifa.cantidadbultos','ifa.precio','ifa.montototal')
-        ->where('pi.idproveedor',$request->proveedor)
-        ->whereBetween('ifa.fechafactura', array($request->fechaInicio, $request->fechaFin))
+        $tabla =DB::table('proveedor pro')
+        ->join('llegadacontenedorestact01 tact01','tact01.idproveedor','=','pro.idproveedor')       
+        ->select('tact01.polizaimportacion','tact01.nopedido','tact01.fechafactura','tact01.cantidadbultos')
+        ->where('pro.idproveedor',$request->proveedor)
+        ->whereBetween('tact01.fechafactura', array($request->fechaInicio, $request->fechaFin))
         ->get();
 
-         if(count($tabla)<1){
-            /*
-           flash('Error: No Se Encontro Ningun Registro!','warning');
-            return redirect()->back(); 
-            */
+        if(count($tabla)<1){
             Session::put('msjErr','alert');
             return redirect()->back();
         }
 
-        $totalBultos = 0; $totalMonto=0.00;
+        $totalBultos = 0; 
         for($i=0; $i<count($tabla);$i++)
         {
-            $totalBultos = $totalBultos+$tabla[$i]->cantidadbultos;
-            $totalMonto = $totalMonto+$tabla[$i]->montototal;
+            $totalBultos = $totalBultos+$tabla[$i]->cantidadbultos;           
         }
 
         $data['proveedor'] = $proveedor;
         $data['tabla'] = $tabla;
-        $data['totalBultos'] = $totalBultos;
-        $data['totalMonto'] = $totalMonto;
+        $data['totalBultos'] = $totalBultos;       
 
         $view =  \View::make('tactico.bultosContenedorPdf',$data)->render();
-                 $pdf = \App::make('dompdf.wrapper');
-                 $pdf->loadHTML($view);
-                 return $pdf->stream("rptact01.pdf");    
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream("rptact01.pdf");    
        
     }
 
@@ -122,16 +115,21 @@ class TacticoController extends Controller
                     ->where('idproveedor',$request->proveedor)->first();
         $data['proveedor'] = $proveedor;
 
-        $tabla =DB::table('proveedor as ps')
-        ->join('inventarioproducto as ip','ip.idproveedor','=','ps.idproveedor')
-        ->join('detalleagravio as da','ip.idinventarioproducto','=','da.idinventarioproducto')
-        ->join('tipoagravio as ta','da.idtipoagravio','=','ta.idtipoagravio')
-        ->join('almacen as an','ip.idalmacen','=','an.idalmacen')
+        $tabla =DB::table('agraviosrespuestostact02 as tact02')
+        ->join('producto as pro','tact02.idproducto','=','pro.idproducto')
+        ->join('proveedor as pdr','tact02.idproveedor','=','pdr.idproveedor')
+        ->join('almacen as acen','tact02.idalmacen','=','acen.idalmacen')
+        ->join('tipoagravio as tao','tact02.idtipoagravio','=','tao.idtipoagravio')
         ->join('producto as po','ip.idproducto','=','po.idproducto')
-        ->select(DB::raw('concat(po.codigo,\'-\',po.nombre) as producto'),'da.fechareportado','da.unidadestotales','da.precio','da.montototal',DB::raw('concat(da.idtipoagravio,\'-\',ta.nombre) as averia'),'ta.descripcion','ip.ubicacion',DB::raw('concat(an.codigo,\'-\',an.nombre) as almacen'))
-        ->where('ps.idproveedor',$request->proveedor)
+        ->select('pro.codigo','pro.nombre','acen.nombre as almacen','tao.nombre as averia','tao.descripcion','tact02.fechaReportado','tact02.precio','tact02.unidadestotales','tact02.montoTotal')
+        ->where('pdr.idproveedor',$request->proveedor)
         ->whereBetween('da.fechareportado', array($request->fechaInicio, $request->fechaFin))
         ->get();
+
+        if(count($tabla)<1){
+            Session::put('msjErr','alert');
+            return redirect()->back();
+        }
 
         $totalSustituir = 0; $totalMonto=0.00;
         for($i=0; $i<count($tabla); $i++)
@@ -144,13 +142,10 @@ class TacticoController extends Controller
         $data['totalSustituir'] = $totalSustituir;
         $data['totalMonto'] = $totalMonto;
 
-        if(count($tabla)<1){
-            Session::put('msjErr','alert');
-            return redirect()->back(); 
-        }
-
-        $pdf = PDF::loadView('tactico.danhoRepuestosImportadosPdf',$data);
-        return $pdf->stream();
+        $view =  \View::make('tactico.danhoRepuestosImportadosPdf',$data)->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream("rptact02.pdf");
     }
 
     public function ventasDomicilioNoEntregadas(){
@@ -167,8 +162,7 @@ class TacticoController extends Controller
     public function ventasDomicilioNoEntregadasPdf(Request $request){
         $this->validate($request,[             
           'fechaInicio'=>'required',
-          'fechaFin' => 'required',
-          'centro' => 'required'         
+          'fechaFin' => 'required'                  
         ]);
         if($request->fechaFin>Date::now()){
             flash('Error: La fecha Fin No Debe Ser Mayor A La Fecha Actual!','danger');
@@ -186,22 +180,32 @@ class TacticoController extends Controller
         $data['fechaInicio'] = $request->fechaInicio;
         $data['fechaFin'] = $request->fechaFin;
 
-        $centro = DB::table('centro')->where('idcentro',$request->centro)->first();
-        $data['centro'] = $centro;
 
-        $tabla = DB::table('centro as ce')
-            ->join('equipotransporte as et','ce.idcentro','=','et.idcentro')
-            ->join('ordenenvio as oe','ce.idcentro','=','oe.idcentro')
-            ->join('tipoorden as to','oe.idtipoorden','=','to.idtipoorden')
-            ->join('factura as fa','oe.idordenenvio','=','fa.idordenenvio')
-            ->join('cliente as cl','fa.idcliente','=','cl.idcliente')
-            ->where('ce.idcentro',$request->centro)
-            ->whereBetween('fa.fecha', array($request->fechaInicio, $request->fechaFin))
-            ->select('fa.codigofactura','fa.fecha','fa.totalmontofactura','oe.nopedido','oe.estadoactual','to.nombre','et.placa','et.marca')
+        $tabla = DB::table('ventasnoentregadastact03 as tact03')
+            ->join('cliente as cli','tact03.idcliente','=','cli.idcliente')
+            ->join('equipotransporte as equi','tact03.idequipotransporte','=','equi.idequipotransporte')         
+            ->whereBetween('tact03.fecha', array($request->fechaInicio, $request->fechaFin))
+            ->select('tact03.codigofactura','tact03.fecha','cli.nombre','tact03.noPedido','equi.placa','tact03.totalmontofactura','tact03.estadoactual','equi.marca')
             ->get();
 
-        $pdf = PDF::loadView('tactico.ventasNoEntregadasPdf',$data);
-        return $pdf->stream();
+        if(count($tabla)<1){
+            Session::put('msjErr','alert');
+            return redirect()->back();
+        }
+
+        $totalMonto=0.00;
+        for($i=0; $i<count($tabla); $i++)
+        {            
+            $totalMonto = $totalMonto + $tabla[$i]->totalmontofactura;
+        }
+
+        $data['tabla'] = $tabla;        
+        $data['totalMonto'] = $totalMonto;
+
+        $view =  \View::make('tactico.ventasNoEntregadasPdf',$data)->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream("rptact03.pdf");
     }
 
     public function dañoInternoRepuestos(){
@@ -218,8 +222,7 @@ class TacticoController extends Controller
     public function dañoInternoRepuestosPdf(Request $request){
         $this->validate($request,[             
           'fechaInicio'=>'required',
-          'fechaFin' => 'required',
-          'centro' => 'required'         
+          'fechaFin' => 'required',                  
         ]);
         if($request->fechaFin>Date::now()){
             flash('Error: La fecha Fin No Debe Ser Mayor A La Fecha Actual!','danger');
@@ -237,11 +240,31 @@ class TacticoController extends Controller
         $data['fechaInicio'] = $request->fechaInicio;
         $data['fechaFin'] = $request->fechaFin;
 
-        $centro = DB::table('centro')->where('idcentro',$request->centro)->first();
-        $data['centro'] = $centro;
+        $tabla = DB::table('agraviointerioralmacentact04 as tact04')
+                ->join('producto as pro','tact04.idproducto','=','pro.idProducto')
+                ->join('tipoagravio as tip','tact04.idtipoagravio','=','tip.idtipoagravio')
+                ->whereBetween('tact04.fechareportado', array($request->fechaInicio, $request->fechaFin))
+                ->select('pro.nombre','pro.descripcion','tact04.fechareportado','tact04.cantexistencia','tact04.unidadestotales','tact04.precio','tip.descripcion as averia','tact04.montototal','tact04.empleadonombre','tact04.empleadodui')
+                ->get();  
+   
+        if(count($tabla)<1){
+            Session::put('msjErr','alert');
+            return redirect()->back();
+        }
+        
+        $totalMonto=0.00;
+        for($i=0; $i<count($tabla); $i++)
+        {            
+            $totalMonto = $totalMonto + $tabla[$i]->montototal;
+        }
 
-        $pdf = PDF::loadView('tactico.danhoInternoRepuestosPdf',$data);
-        return $pdf->stream();
+        $data['tabla'] = $tabla;        
+        $data['totalMonto'] = $totalMonto;
+
+        $view =  \View::make('tactico.danhoInternoRepuestosPdf',$data)->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream("rptact04.pdf");
     }
 
     public function ventasAlContado(){
