@@ -176,7 +176,7 @@
                     </div>
                 </div>
             </div>
-            <a href="{{route('material.despacho')}}">
+            <a href="{{route('inventario.selectivo')}}">
                 <div class="panel-footer">
                     <span class="pull-left"></span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -197,7 +197,7 @@
                     </div>
                 </div>
             </div>
-            <a href="{{route('material.despacho')}}">
+            <a href="{{route('reabastecimiento.almacenes')}}">
                 <div class="panel-footer">
                     <span class="pull-left"></span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -218,7 +218,7 @@
                     </div>
                 </div>
             </div>
-            <a href="{{route('material.despacho')}}">
+            <a href="{{route('kilometraje.consumido')}}">
                 <div class="panel-footer">
                     <span class="pull-left"></span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -239,7 +239,7 @@
                     </div>
                 </div>
             </div>
-            <a href="{{route('material.despacho')}}">
+            <a href="{{route('tiempo.descarga')}}">
                 <div class="panel-footer">
                     <span class="pull-left"></span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -260,7 +260,7 @@
                     </div>
                 </div>
             </div>
-            <a href="{{route('material.despacho')}}">
+            <a href="{{route('combustible.consumido')}}">
                 <div class="panel-footer">
                     <span class="pull-left"></span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

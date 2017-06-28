@@ -186,6 +186,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class, 
         Styde\Html\HtmlServiceProvider::class,
         Jenssegers\Date\DateServiceProvider::class,
+        Marquine\Etl\Providers\Laravel\EtlServiceProvider::class,
 
 
     ],

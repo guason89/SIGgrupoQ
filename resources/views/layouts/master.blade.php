@@ -51,7 +51,8 @@
                     @include('layouts.menus.tactico')                                
                 @endif
                 @if(Auth::User()->idperfil==3)
-                    @include('layouts.menus.estrategico')                                
+                    @include('layouts.menus.estrategico')
+                    @include('layouts.menus.tactico')                                  
                 @endif
 
             </ul>
@@ -146,10 +147,14 @@
         $('#msj').delay(2000).fadeOut(2000);
         $('#error').delay(3000).fadeOut(2000);
 
-        $( ".datepicker" ).datepicker({            
-        });
 
-        
+        $(".datepicker").datepicker({
+            "autoclose": true
+        }).on('changeDate', function(e){
+          
+            if(e.viewMode === 'days')
+            $(this).datepicker('hide');
+        });
      </script>
      
     

@@ -1733,7 +1733,7 @@
 		forceParse: true,
 		format: 'mm/dd/yyyy',
 		keyboardNavigation: true,
-		language: 'en',
+		language: 'es',
 		minViewMode: 0,
 		maxViewMode: 4,
 		multidate: false,
@@ -1770,6 +1770,16 @@
 			daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
 			months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
 			monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+			today: "Today",
+			clear: "Clear",
+			titleFormat: "MM yyyy"
+		},
+		es: {
+			days: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
+			daysShort: ["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"],
+			daysMin: ["Do","Lu","Ma","Mi","Ju","Vi","Sa"],
+			months: ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
+			monthsShort: ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],
 			today: "Today",
 			clear: "Clear",
 			titleFormat: "MM yyyy"
