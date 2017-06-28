@@ -34,6 +34,10 @@ class EstrategicoController extends Controller
             return redirect()->back(); 
         }
 
+        select  pro.nombre, pro.descripcion, dif.fecharealizado, dif.unidadessistema, dif.unidadescontadas, dif.preciounitario, dif.montodiferencias from 
+    diferenciafisicosistematest01 dif inner join producto pro on 
+    dif.fecharealizado >= date('2016-02-01') and dif.fecharealizado <= date('2016-11-01');
+
         $date = new Date();
         $date = $date->format('l, j \d\e F \d\e Y');
         $data['fecha'] = $date;
