@@ -53,7 +53,12 @@
 	                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">   
 	                    <div class="input-group">
 	                        <div class="input-group-addon"><b>CENTRO DE SALIDA</b></div>
-	                        <select class="form-control" id="centroSalida" name="centroSalida"></select>
+	                        <select class="form-control" id="centroSalida" name="centroSalida">
+	                        	<option value="" selected>Seleccione un Centro</option>
+	                        	@foreach($centro as $c)
+	                        		<option value="{{$c->idcentro}}">{{$c->nombre}}</option>
+	                        	@endforeach
+	                        </select>
 	                    </div>          
 	                </div>                                  
             	</div>
@@ -89,15 +94,40 @@
 
 @section('js')
 
+@if(Session::has('msjErr'))
 <script>
+	var msg = "<ul class='text-warning'><li>No Se Encontró Ningun Registro En El Rango de Fecha Indicado!</li></ul>";
+	alertify.alert("Alerta!",msg, function(){    
+  	});
+	{{Session::forget('msjErr')}}  
+ </script> 
+@endif
+
+<script>
+
 $(document).ready(function(){
 
 	$('.date_masking').mask('0000-00-00');
 
-}); 
-
-
+	$("#centroSalida").on('change',function(){ 
+      $.ajax({
+        data: {_token:'{{ csrf_token() }}',centro:this.value},
+        url: "{{route('get.centro')}}",
+        type: 'post',
+        beforeSend: function() {
+        $("#centroEntrada").prop("disabled",true);
+      },
+            success:  function (response){
+              $("#centroEntrada").html(response);
+              $("#centroEntrada").prop("disabled",false);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+              $("#centroEntrada").prop("disabled",false);
+                console.log("Error en peticion AJAX!");  
+            }
+      });
+    });
+}); /*fin del document.ready*/
    
 </script>
-
 @endsection

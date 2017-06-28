@@ -132,54 +132,28 @@
    <div align="center">
      <main>
         <p><b>Desde :</b> {{$fechaInicio}} <b>Hasta :</b> {{$fechaFin}}</p> 
-        <p><b>Vehiculo : </b> C999-999</p>    
+        <p><b>Vehiculo : </b> {{$vehiculo}}</p>    
 
                <table id="Tabla" style="width:100%;">
           <tbody> 
-            <tr>
-               <td width="30" height="40">PLACA VEHICULO</td>
-               <td width="30" height="40">ZONA</td>
+            <tr>                            
                <td width="30" height="40">FECHA ASIGNADA</td>
-               <td width="30" height="40">KM DE SALIDA</td>
-               <td width="30" height="40">KM DE LLEGADA</td>
-               <td width="30" height="40">KM CONSUMIDOS</td>       
+               <td width="30" height="40">KM INICIAL</td>
+               <td width="30" height="40">KM FINAL</td>
+               <td width="30" height="40">ESTADO ACTUAL</td>
+               <td width="30" height="40">COMBUSTIBLE CONSUMIDO</td>
+               <td width="30" height="40">MONTO CONSUMIDO</td>        
             </tr>
+            @foreach($tabla as $t)
              <tr>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>               
+               <td width="30" height="40">{{$t->fechaasignado}}</td>
+               <td width="30" height="40">{{$t->kminicial}}</td>
+               <td width="30" height="40">{{$t->kmfinal}}</td>
+               <td width="30" height="40">{{$t->estadoactualuso}}</td>
+               <td width="30" height="40">{{$t->combustiblesconsumido}}</td>
+               <td width="30" height="40">{{$t->montoconsumido}}</td>               
             </tr>
-             <tr>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>                
-            </tr>
-             <tr>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>                 
-            </tr>
-             <tr>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>                 
-            </tr>
-
-
-      
-         
+            @endforeach
           </tbody>
         </table>
       

@@ -49,7 +49,11 @@
 	                    <div class="input-group">
 	                        <div class="input-group-addon"><b>SELECCIONE VEHICULO</b></div>
 	                        <select class="form-control" id="vehiculo" name="vehiculo"></select>
-	                    </div>          
+	                        	<option value="" selected>Seleccione un Vehiculo</option>
+	                        @foreach($vehiculo as $v)
+	                        	<option value="{{$v->placa}}">{{$v->nombre}}</option>
+	                        @endforeach
+	                    </div>           
 	                </div>                                  
             	</div>            	
 			</div>			        
@@ -75,14 +79,21 @@
 
 @section('js')
 
+@if(Session::has('msjErr'))
 <script>
+	var msg = "<ul class='text-warning'><li>No Se Encontró Ningun Registro En El Rango de Fecha Indicado!</li></ul>";
+	alertify.alert("Alerta!",msg, function(){    
+  	});
+	{{Session::forget('msjErr')}}  
+ </script> 
+@endif
+
+<script>
+
 $(document).ready(function(){
 
 	$('.date_masking').mask('0000-00-00');
-
-}); 
-
-
+});
    
 </script>
 @endsection

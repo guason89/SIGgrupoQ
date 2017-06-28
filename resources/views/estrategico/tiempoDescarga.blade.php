@@ -66,14 +66,21 @@
 
 @section('js')
 
+@if(Session::has('msjErr'))
 <script>
+	var msg = "<ul class='text-warning'><li>No Se Encontró Ningun Registro En El Rango de Fecha Indicado!</li></ul>";
+	alertify.alert("Alerta!",msg, function(){    
+  	});
+	{{Session::forget('msjErr')}}  
+ </script> 
+@endif
+
+<script>
+
 $(document).ready(function(){
 
 	$('.date_masking').mask('0000-00-00');
-
-}); 
-
-
+});
    
 </script>
 @endsection

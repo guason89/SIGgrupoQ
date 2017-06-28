@@ -24,4 +24,7 @@ Route::group(['middleware'=>['auth']],function(){
 
 	Route::post('rtrest05/',['as'=>'informe-combustible-consumido','uses'=>'EstrategicoController@combustibleConsumidoPdf']);
 
+	Route::post('/getCetnto',['as'=>'get.centro','uses'=>'EstrategicoController@getCentro']);
+	
+
 });

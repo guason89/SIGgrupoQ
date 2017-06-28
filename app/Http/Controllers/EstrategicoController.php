@@ -32,11 +32,7 @@ class EstrategicoController extends Controller
         if($request->fechaInicio>$request->fechaFin){
            flash('Error: La fecha Inicio No Debe Ser Mayor A La Fecha Fin!','danger');
             return redirect()->back(); 
-        }
-
-        select  pro.nombre, pro.descripcion, dif.fecharealizado, dif.unidadessistema, dif.unidadescontadas, dif.preciounitario, dif.montodiferencias from 
-    diferenciafisicosistematest01 dif inner join producto pro on 
-    dif.fecharealizado >= date('2016-02-01') and dif.fecharealizado <= date('2016-11-01');
+        }             
 
         $date = new Date();
         $date = $date->format('l, j \d\e F \d\e Y');
@@ -45,12 +41,23 @@ class EstrategicoController extends Controller
         $data['fechaInicio'] = $request->fechaInicio;
         $data['fechaFin'] = $request->fechaFin;
 
-/*para obtener los registros entre 2 fechas 
-        $requisiciones =DB::table('nombre de la tabla en la base')->whereBetween('fechaIngreso', array($request->fechaInicio, $request->fechaFin))->get();
+        $tabla = DB::table('diferenciafisicosistematest01 as test01')
+                ->join('producto as pro','pro.idproducto','=','test01.idproducto')
+                ->select('pro.nombre','pro.descripcion','test01.fecharealizado','test01.unidadessistema','test01.unidadescontadas','test01.preciounitario','test01.montodiferencias')
+                ->whereBetween('test01.fecharealizado', array($request->fechaInicio, $request->fechaFin))
+                ->get();
+        if(count($tabla)<1){
+         
+            Session::put('msjErr','alert');
+            return redirect()->back();
+        }
 
- */       
-        $pdf = PDF::loadView('estrategico.inventarioSelectivoPdf',$data);
-        return $pdf->stream();
+        $data['tabla'] = $tabla;     
+        
+        $view =  \View::make('estrategico.inventarioSelectivoPdf',$data)->render();
+                 $pdf = \App::make('dompdf.wrapper');
+                 $pdf->loadHTML($view);
+                 return $pdf->stream("280617rptest01.pdf"); 
         
     }
 
@@ -59,6 +66,8 @@ class EstrategicoController extends Controller
         $date = $date->format('l, j \d\e F \d\e Y');
         $data['fecha'] = $date;
 
+        $centro = DB::table('centro')->get();
+        $data['centro'] = $centro;
         return view('estrategico.reabastecimientoAlmacenes',$data);
     }
 
@@ -66,8 +75,8 @@ class EstrategicoController extends Controller
         $this->validate($request,[             
           'fechaInicio'=>'required',
           'fechaFin' => 'required',
-          //'centroSalida'=>'required',
-          //'centroEntrada'=>'required'          
+          'centroSalida'=>'required',
+          'centroEntrada'=>'required'          
         ]);
         if($request->fechaFin>Date::now()){
             flash('Error: La fecha Fin No Debe Ser Mayor A La Fecha Actual!','danger');
@@ -85,8 +94,30 @@ class EstrategicoController extends Controller
         $data['fechaInicio'] = $request->fechaInicio;
         $data['fechaFin'] = $request->fechaFin;
 
-        $pdf = PDF::loadView('estrategico.reabastecimientoAlmacenesPdf',$data);
-        return $pdf->stream();
+        $tabla = DB::table('rebastecimientoproductotest02 as test02')
+                ->join('producto as pro','test02.idproducto','=','pro.idproducto')
+                ->join('centro as cen1','test02.idcentrosalida','=','cen1.idcentro')
+                ->join('centro as cen2','test02.idcentrodestino','=','cen2.idcentro')
+                ->select('pro.codigo','pro.nombre','test02.fecha','test02.cantidad','test02.costounitario','test02.montototal')
+                ->where('test02.idcentrosalida',$request->centroSalida)
+                ->where('test02.idcentrodestino',$request->centroEntrada)
+                ->whereBetween('test01.fecharealizado', array($request->fechaInicio, $request->fechaFin))
+                ->get();
+
+        if(count($tabla)<1){
+         
+            Session::put('msjErr','alert');
+            return redirect()->back();
+        }
+
+        $data['tabla'] = $tabla;
+        $data['centroSalida'] =$request->centroSalida;  
+        $data['centroEntrada'] = $request->centroEntrada;
+
+        $view =  \View::make('estrategico.reabastecimientoAlmacenesPdf',$data)->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream("280617rptest02.pdf");
     }
 
     public function kilometrajeConsumido(){
@@ -94,10 +125,26 @@ class EstrategicoController extends Controller
         $date = $date->format('l, j \d\e F \d\e Y');
         $data['fecha'] = $date;
 
+        $vehiculo = DB::table('equipotransporte')->get();
+        $data['vehiculo'] = $vehiculo;
         return view('estrategico.kilometrajeConsumido',$data);
     }
 
     public function kilometrajeConsumidoPdf(Request $request){
+        $this->validate($request,[             
+          'fechaInicio'=>'required',
+          'fechaFin' => 'required',
+          'vehiculo'=>'required'                   
+        ]);
+        if($request->fechaFin>Date::now()){
+            flash('Error: La fecha Fin No Debe Ser Mayor A La Fecha Actual!','danger');
+            return redirect()->back();
+        }
+        if($request->fechaInicio>$request->fechaFin){
+           flash('Error: La fecha Inicio No Debe Ser Mayor A La Fecha Fin!','danger');
+            return redirect()->back(); 
+        }
+
         $date = new Date();
         $date = $date->format('l, j \d\e F \d\e Y');
         $data['fecha'] = $date;
@@ -105,11 +152,30 @@ class EstrategicoController extends Controller
         $data['fechaInicio'] = $request->fechaInicio;
         $data['fechaFin'] = $request->fechaFin;
 
-        $pdf = PDF::loadView('estrategico.kilometrajeConsumidoPdf',$data);
-        return $pdf->stream();
+        $tabla = DB('kiloequipotransportetest03 as test03')
+                ->join('equipotransporte as equi','test03.idequipotransporte','=','equi.idequipotransporte ')
+                ->where('equi.placa',$request->vehiculo)
+                ->whereBetween('test01.fecharealizado', array($request->fechaInicio, $request->fechaFin))
+                ->select('equi.estadoactualuso','test03.fechaasignado','test03.kminicial','test03.kmfinal','test03.combustiblesconsumido','test03.montoconsumido')
+                ->get();
+
+        if(count($tabla)<1){
+         
+            Session::put('msjErr','alert');
+            return redirect()->back();
+        }
+
+        $data['tabla'] = $tabla;
+        $data['vehiculo'] = $request->vehiculo;
+
+        $view =  \View::make('estrategico.kilometrajeConsumidoPdf',$data)->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream("280617rptest03.pdf");
     }
 
     public function tiempoDescarga(){
+
     	$date = new Date();
         $date = $date->format('l, j \d\e F \d\e Y');
         $data['fecha'] = $date;
@@ -118,6 +184,19 @@ class EstrategicoController extends Controller
     }
 
     public function tiempoDescargaPdf(Request $request){
+        $this->validate($request,[             
+          'fechaInicio'=>'required',
+          'fechaFin' => 'required',                            
+        ]);
+        if($request->fechaFin>Date::now()){
+            flash('Error: La fecha Fin No Debe Ser Mayor A La Fecha Actual!','danger');
+            return redirect()->back();
+        }
+        if($request->fechaInicio>$request->fechaFin){
+           flash('Error: La fecha Inicio No Debe Ser Mayor A La Fecha Fin!','danger');
+            return redirect()->back(); 
+        }
+
         $date = new Date();
         $date = $date->format('l, j \d\e F \d\e Y');
         $data['fecha'] = $date;
@@ -125,8 +204,23 @@ class EstrategicoController extends Controller
         $data['fechaInicio'] = $request->fechaInicio;
         $data['fechaFin'] = $request->fechaFin;
 
-        $pdf = PDF::loadView('estrategico.tiempoDescargaPdf',$data);
-        return $pdf->stream();
+        $tabla = DB::table('descargacontenedortest04')
+                ->whereBetween('fechafactura', array($request->fechaInicio, $request->fechaFin))
+                ->select('nofactura','fechafactura','fechallegada','horallegada','fechaapertura','horaapertura','fechafinalizacion','horafinalizacion','tiempoestandar')
+                ->get();
+
+        if(count($tabla)<1){
+         
+            Session::put('msjErr','alert');
+            return redirect()->back();
+        }
+
+        $data['tabla'] = $tabla;      
+
+        $view =  \View::make('estrategico.tiempoDescargaPdf',$data)->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream("280617rptest04.pdf");
     }
 
     public function combustibleConsumido(){
@@ -134,10 +228,27 @@ class EstrategicoController extends Controller
         $date = $date->format('l, j \d\e F \d\e Y');
         $data['fecha'] = $date;
 
+        $vehiculo = DB::table('equipotransporte')->get();
+        $data['vehiculo'] = $vehiculo;
+
         return view('estrategico.cantidadCombustible',$data);
     }
 
     public function combustibleConsumidoPdf(Request $request){
+        $this->validate($request,[             
+          'fechaInicio'=>'required',
+          'fechaFin' => 'required',
+          'vehiculo'=>'required'                   
+        ]);
+        if($request->fechaFin>Date::now()){
+            flash('Error: La fecha Fin No Debe Ser Mayor A La Fecha Actual!','danger');
+            return redirect()->back();
+        }
+        if($request->fechaInicio>$request->fechaFin){
+           flash('Error: La fecha Inicio No Debe Ser Mayor A La Fecha Fin!','danger');
+            return redirect()->back(); 
+        }
+
         $date = new Date();
         $date = $date->format('l, j \d\e F \d\e Y');
         $data['fecha'] = $date;
@@ -145,8 +256,34 @@ class EstrategicoController extends Controller
         $data['fechaInicio'] = $request->fechaInicio;
         $data['fechaFin'] = $request->fechaFin;
 
-        $pdf = PDF::loadView('estrategico.cantidadCombustiblePdf',$data);
-        return $pdf->stream();
+        $tabla = DB::table('combustibleconsumidotest05 as test05')
+                ->join('equipotransporte as equi','test05.idequipotransporte','=','equi.idequipotransporte')
+                ->where('equi.placa',$request->vehiculo)
+                ->whereBetween('test05.fechaasignado', array($request->fechaInicio, $request->fechaFin))
+                ->select('equi.estadoactualuso','test05.fechaasignado','test05.combustibleasignado','test05.ahorroexcedente','test05.combustibleactualfinal')
+                ->get();
+
+        if(count($tabla)<1){
+         
+            Session::put('msjErr','alert');
+            return redirect()->back();
+        }
+        
+        $data['tabla'] = $tabla;
+
+        $view =  \View::make('estrategico.cantidadCombustiblePdf',$data)->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream("280617rptest05.pdf");
+    }
+
+    public function getCentro(Request $request){
+        $result = "<option value=''>Seleccione Una Opcion</option>";
+        $centros = DB::table('centro')->where('idcentro',$request->centro)->pluck('nombre','idcentro');
+        foreach ($centros as $key => $value) {
+            $result .= "<option value='$key'>$value</option>";
+        }
+        return $result;
     }
 }
 

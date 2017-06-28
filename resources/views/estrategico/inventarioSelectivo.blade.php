@@ -43,17 +43,6 @@
 		            </div>
 		        </div>				
 			</div>
-
-			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-				<div class="form-group">
-	                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">   
-	                    <div class="input-group">
-	                        <div class="input-group-addon"><b>SELECCIONE UN CENTRO</b></div>
-	                        <select class="form-control" id="centro" name="centro"></select>
-	                    </div>          
-	                </div>                                  
-            	</div>            	
-			</div>
 			       
 		</div>
 		
@@ -77,14 +66,21 @@
 
 @section('js')
 
+@if(Session::has('msjErr'))
 <script>
+	var msg = "<ul class='text-warning'><li>No Se Encontró Ningun Registro En El Rango de Fecha Indicado!</li></ul>";
+	alertify.alert("Alerta!",msg, function(){    
+  	});
+	{{Session::forget('msjErr')}}  
+ </script> 
+@endif
+
+<script>
+
 $(document).ready(function(){
 
 	$('.date_masking').mask('0000-00-00');
-
-}); 
-
-
+});
    
 </script>
 @endsection

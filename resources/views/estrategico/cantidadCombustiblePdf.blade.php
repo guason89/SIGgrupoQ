@@ -137,25 +137,21 @@
                <table id="Tabla" style="width:100%;">
           <tbody> 
             <tr>
-               <td width="30" height="40">FECHA</td>
-               <td width="30" height="40">COMBUSTIBLE ASIGNADO (gl)</td>
-               <td width="30" height="40">COMBUSTIBLE CONSUMIDO</td>
-               <td width="30" height="40">AHORRO/EXCEDENTE</td>                 
+               <td width="30" height="40">ESTADO ACTUAL</td>
+               <td width="30" height="40">FECHA ASIGNADO</td>
+               <td width="30" height="40">COMBUSTIBLE ASIGNADO (gl)</td>               
+               <td width="30" height="40">AHORRO/EXCEDENTE</td>
+               <td width="30" height="40">COMBUSTIBLE FINAL</td>                 
             </tr>
+            @foreach($tabla as $t)
              <tr>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>                          
-            </tr>
-             <tr>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>                          
-            </tr>
-            
-         
+               <td width="30" height="40">{{$t->estadoactualuso}}</td>
+               <td width="30" height="40">{{$t->fechaasignado}}</td>
+               <td width="30" height="40">{{$t->combustibleasignado}}</td>
+               <td width="30" height="40">{{$t->ahorroexcedente}}</td>
+               <td width="30" height="40">{{$t->combustibleactualfinal}}</td>                        
+            </tr>    
+            @endforeach
           </tbody>
         </table>
       

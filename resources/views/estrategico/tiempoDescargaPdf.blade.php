@@ -136,27 +136,23 @@
         <table id="Tabla" style="width:100%;">
           <tbody> 
             <tr>
-               <td width="30" height="40">CORRELATIVO</td>
-               <td width="30" height="40">FECHA Y HORA DE LLEGADA</td>
-               <td width="30" height="40">FECHA Y HORA DE APERTURA</td>
-               <td width="30" height="40">TIEMPO DE DESCARGA ESTANDAR</td>
-               <td width="30" height="40">FECHA Y HORA DE FINALIZACION</td>                     
+               <td width="30" height="40">No FACTURA</td>
+               <td width="30" height="40">FECHA FACTURA</td>
+               <td width="30" height="40">TIEMPO LLEGADA</td>
+               <td width="30" height="40">TIEMPO APERTURA</td>
+               <td width="30" height="40">TIEMPO FINALIZACION</td> 
+               <td width="30" height="40">TIEMPO ESTANDAR</td>                    
             </tr>
+            @foreach($tabla as $t)
              <tr>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>                              
+               <td width="30" height="40">{{$t->nofactura}}</td>
+               <td width="30" height="40">{{$t->fechafactura}}</td>
+               <td width="30" height="40">{{$t->fechallegada}} : {{$t->horallegada}}</td>
+               <td width="30" height="40">{{$t->fechaapertura}} : {{$t->horaapertura}}</td>
+               <td width="30" height="40">{{$t->fechafinalizacion}} : {{$t->horafinalizacion}}</td>
+               <td width="30" height="40">{{$t->tiempoestandar}}</td>                                
             </tr>
-             <tr>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>                               
-            </tr>
-             
+            @endforeach
           </tbody>
         </table>
       
