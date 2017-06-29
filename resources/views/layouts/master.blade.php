@@ -73,8 +73,7 @@
                             <span class="caret"></span></button>
                             <ul class="dropdown-menu">
                               <li><a href="{{route('logout')}}">Salir</a></li>                  
-                              <li class="divider"></li>
-                              <li><a href="#">ayuda</a></li>
+                              <li class="divider"></li>                              
                             </ul>
                         </div>
                        

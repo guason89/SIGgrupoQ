@@ -77,16 +77,10 @@
       text-align: center !important;
       max-width: 70% !important;
       margin: 0 auto;
-      
+      font-size: 10px;
     }
      
-      #firma{
-        height: auto; 
-        width: auto; 
-        max-width: 400px; 
-        max-height: 800px;
-      
-      }
+
     </style>
   </head>
   <body>
@@ -137,96 +131,41 @@
                <table id="Tabla" style="width:100%;">
           <tbody> 
             <tr>
-               <td width="30" height="40">CODIGO</td>
-               <td width="30" height="40">NOMBRE DE LA PIEZA</td>
-               <td width="30" height="40">FECHA</td>             
-               <td width="30" height="40">CANTIDAD</td>
-               <td width="30" height="40">COSTO UNITARIO</td>
-               <td width="30" height="40">MONTO TOTAL</td>        
+               <td width="20" height="30">CODIGO</td>
+               <td width="20" height="30">NOMBRE DE LA PIEZA</td>
+               <td width="20" height="30">FECHA</td>             
+               <td width="20" height="30">CANTIDAD</td>
+               <td width="20" height="30">COSTO UNITARIO</td>
+               <td width="20" height="30">MONTO TOTAL</td>        
             </tr>
             @foreach($tabla as $t)
              <tr>
-               <td width="30" height="40">{{$t->codigo}}</td>
-               <td width="30" height="40">{{$t->nombre}}</td>
-               <td width="30" height="40">{{$t->fecha}}</td>
-               <td width="30" height="40">{{$t->cantidad}}</td>
-               <td width="30" height="40">{{$t->costounitario}}</td>
-               <td width="30" height="40">{{$t->montototal}}</td>               
+               <td width="20" height="30">{{$t->codigo}}</td>
+               <td width="20" height="30">{{$t->nombre}}</td>
+               <td width="20" height="30">{{$t->fecha}}</td>
+               <td width="20" height="30">{{$t->cantidad}}</td>
+               <td width="20" height="30">{{$t->costounitario}}</td>
+               <td width="20" height="30">{{number_format($t->montototal,2,'.',',')}}</td>               
             </tr>
             @endforeach
+            <tr>
+               <td width="20" height="30">TOTAL</td>
+               <td width="20" height="30"></td>
+               <td width="20" height="30"></td>
+               <td width="20" height="30"></td>
+               <td width="20" height="30"></td>
+               <td width="20" height="30">$ {{number_format($total,2,'.',',')}}</td>               
+            </tr>
           </tbody>
         </table>
       
      </main>
     </div>
 
-    <div style="page-break-after:always;"></div>
+    <div></div>
   
 
-    <div align="center">
-     <main>
-         
-
-        <h3>Tabla</h3>
-        <table id="Tabla" style="width:100%;">
-          <tbody> 
-            <tr>
-               <td width="30" height="40">CODIGO</td>
-               <td width="30" height="40">NOMBRE DE LA PIEZA</td>
-               <td width="30" height="40">CENTRO DE SALIDA</td>
-               <td width="30" height="40">CENTRO DE DESTINO</td>
-               <td width="30" height="40">CANTIDAD</td>
-               <td width="30" height="40">COSTO</td>       
-            </tr>
-             <tr>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>               
-            </tr>
-             <tr>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>                
-            </tr>
-             <tr>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>                 
-            </tr>
-             <tr>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>
-               <td width="30" height="40"></td>                 
-            </tr>
-
-
-      
-         
-          </tbody>
-        </table>
-        
-
-     
-
-        <br>
-        <br>
-        <br>
-
-      
-     </main>
-    </div>
+   
 
 
     <footer id="footer">

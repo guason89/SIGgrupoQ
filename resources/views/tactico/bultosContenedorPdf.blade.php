@@ -80,13 +80,7 @@
       
     }
      
-      #firma{
-        height: auto; 
-        width: auto; 
-        max-width: 400px; 
-        max-height: 800px;
-      
-      }
+
     </style>
   </head>
   <body>
@@ -147,7 +141,7 @@
                <td width="30" height="40">{{$t->polizaimportacion}}</td>
                <td width="30" height="40">{{$t->nopedido}}</td>
                <td width="30" height="40">{{$t->fechafactura}}</td>
-               <td width="30" height="40">{{number_format($t->cantidadBultos,0,'',',')}}</td>     
+               <td width="30" height="40">{{number_format($t->cantidadbultos,0,'',',')}}</td>     
             </tr>
             @endforeach
             <tr>              

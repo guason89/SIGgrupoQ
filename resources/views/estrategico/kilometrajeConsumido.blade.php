@@ -47,12 +47,14 @@
 				<div class="form-group">
 	                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">   
 	                    <div class="input-group">
-	                        <div class="input-group-addon"><b>SELECCIONE VEHICULO</b></div>
-	                        <select class="form-control" id="vehiculo" name="vehiculo"></select>
-	                        <option value="" selected>Seleccione un Vehiculo</option>
+	                        <label>SELECCIONE VEHICULO</label>
+	                        <select class="form-control" id="vehiculo" name="vehiculo">
+	                        <option value="" selected></option>
 	                        @foreach($vehiculo as $v)
-	                        	<option value="{{$v->placa}}">{{$v->nombre}}</option>
+	                        	<option value="{{$v->placa}}">{{$v->placa}}</option>
 	                        @endforeach
+	                        
+	                        </select>
 	                    </div>          
 	                </div>                                  
             	</div>            	

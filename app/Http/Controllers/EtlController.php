@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Marquine\Etl\Job;
 use Redirect;
 use Session;
+use DB;
 
 class EtlController extends Controller
 {
@@ -13,6 +14,13 @@ class EtlController extends Controller
     	$path = getcwd(); // directorio actual
     	$dir = explode( '\public', $path) ;
     	//$job = new Job;
+       $cuenta = DB::table('cliente')->count();
+       if($cuenta>0)
+       {
+       	flash('La Base De Datos Contiene Datos','success');            
+            return redirect()->route('doInicio');
+       }
+       else{       	
 
     	Job::start()->extract('csv', $dir[0].'\archivosCSV\clientes.csv')
     		->transform('trim', ['columns' => ['idcliente','nombre','nit','direccion','cuentahabilitada']])
@@ -46,9 +54,9 @@ class EtlController extends Controller
             ->transform('trim', ['columns' => ['idproveedor','nombre','descripcion','codigo']])
             ->load('table','proveedor');
 
-        /*Job::start()->extract('csv', $dir[0].'\archivosCSV\agraviointerior.csv')
+        Job::start()->extract('csv', $dir[0].'\archivosCSV\agraviointerior.csv')
             ->transform('trim', ['columns' => ['id','idcentro','idproducto','idtipoagravio','cantexistencia','unidad','fechareportado','unidadestotales','precio','montototal','empleadonombre','empleadodui']])
-            ->load('table','agraviointerioralmacentact04');*//*No funciona ErrorException Undefined index: id*/
+            ->load('table','agraviointerioralmacentact04');
 
         Job::start()->extract('csv', $dir[0].'\archivosCSV\agraviorespuestotact02.csv')
             ->transform('trim', ['columns' => ['id','idproducto','idproveedor','idalmacen','idtipoagravio','fechareportado','unidadestotales','precio','montototal','ubicacion']])
@@ -99,6 +107,7 @@ class EtlController extends Controller
 
     flash('La Base De Datos Se Lleno Exitosamente!','success');            
             return redirect()->route('doInicio');
-
+	}//fin del else
     }
+
 }

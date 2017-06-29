@@ -77,6 +77,7 @@
       text-align: center !important;
       max-width: 70% !important;
       margin: 0 auto;
+      font-size: 10px;
       
     }
      
@@ -130,40 +131,40 @@
                <table id="Tabla" style="width:100%;">
           <tbody> 
             <tr>               
-               <td width="30" height="40">PRODUCTO</td>
-               <td width="30" height="40">DESCRIPCION</td>
-               <td width="30" height="40">FECHA REPORTADO</td>
-               <td width="30" height="40">EXISTENCIA</td>
-               <td width="30" height="40">UNIDADES TOTALES</td>
-               <td width="30" height="40">PRECIO</td>
-               <td width="30" height="40">AVERIA</td>
-               <td width="30" height="40">MONTO</td>
-               <td width="30" height="40">EMPLEADO</td>                                            
-            </tr>
+               <td width="15" height="25">PRODUCTO</td>
+               <td width="15" height="25">DESCRIPCION</td>
+               <td width="15" height="25">FECHA REPORTADO</td>
+               <td width="15" height="25">EXISTENCIA</td>
+               <td width="15" height="25">UNIDADES TOTALES</td>
+               <td width="15" height="25">PRECIO</td>
+               <td width="15" height="25">DESCRIPCION</td>
+               <td width="15" height="25">MONTO</td>
+               <td width="15" height="25">EMPLEADO</td>                                            
+            </tr>            
             @foreach($tabla as $t)
             <tr>              
-             <td width="30" height="40">{{$t->nombre}}</td>
-             <td width="30" height="40">{{$t->descripcion}}</td>
-             <td width="30" height="40">{{$t->fechareportado}}</td>
-             <td width="30" height="40">{{$t->cantexistencia}}</td>
-             <td width="30" height="40">{{$t->unidadestotales}}</td>
-             <td width="30" height="40">{{$t->precio}}</td>
-             <td width="30" height="40">{{$t->averia}}</td>
-             <td width="30" height="40">$ {{number_format($montototal,2,'.',',')}}</td>
-             <td width="30" height="40">{{$t->empleadonombre}}</td>                   
+             <td width="15" height="25">{{$t->nombre}}</td>
+             <td width="15" height="25">{{$t->descripcion}}</td>
+             <td width="15" height="25">{{$t->fechareportado}}</td>
+             <td width="15" height="25">{{$t->cantexistencia}}</td>
+             <td width="15" height="25">{{$t->unidadestotales}}</td>
+             <td width="15" height="25">{{$t->precio}}</td>
+             <td width="15" height="25">{{$t->averia}}</td>
+             <td width="15" height="25">$ {{number_format($t->montototal,2,'.',',')}}</td>
+             <td width="15" height="25">{{$t->empleadonombre}}</td>                   
             </tr>
             @endforeach
             <tr>              
-             <td width="30" height="40">TOTAL</td>
-             <td width="30" height="40"></td>
-             <td width="30" height="40"></td>
-             <td width="30" height="40"></td>
-             <td width="30" height="40"></td>
-             <td width="30" height="40"></td>
-             <td width="30" height="40"></td>
-             <td width="30" height="40">$ {{number_format($totalMonto,2,'.',',')}}</td>
-             <td width="30" height="40"></td>              
-            </tr>
+             <td width="15" height="25">TOTAL</td>
+             <td width="15" height="25"></td>
+             <td width="15" height="25"></td>
+             <td width="15" height="25"></td>
+             <td width="15" height="25"></td>
+             <td width="15" height="25"></td>
+             <td width="15" height="25"></td>
+             <td width="15" height="25">$ {{number_format($totalMonto,2,'.',',')}}</td>
+             <td width="15" height="25"></td>              
+</tr>
           </tbody>
         </table>
       

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -78,15 +77,8 @@
       max-width: 70% !important;
       margin: 0 auto;
       
-    }
-     
-      #firma{
-        height: auto; 
-        width: auto; 
-        max-width: 400px; 
-        max-height: 800px;
-      
-      }
+    }    
+
     </style>
   </head>
   <body>
@@ -134,7 +126,7 @@
         <p><b>Desde :</b> {{$fechaInicio}} <b>Hasta :</b> {{$fechaFin}}</p> 
         <p><b>Centro : </b> S999</p>    
 
-               <table id="Tabla" style="width:100%;">
+            <table  style="width:100%;">
           <tbody> 
             <tr>
                <td width="30" height="40">PRODUCTO</td>
@@ -162,11 +154,6 @@
       
      </main>
     </div>
-
-
-    <footer id="footer">
- 
-    </footer>
 
   </body>
 

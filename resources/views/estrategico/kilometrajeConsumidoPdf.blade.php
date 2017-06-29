@@ -151,9 +151,17 @@
                <td width="30" height="40">{{$t->kmfinal}}</td>
                <td width="30" height="40">{{$t->estadoactualuso}}</td>
                <td width="30" height="40">{{$t->combustiblesconsumido}}</td>
-               <td width="30" height="40">{{$t->montoconsumido}}</td>               
+               <td width="30" height="40">$ {{number_format($t->montoconsumido,2,'.',',')}}</td>  
             </tr>
             @endforeach
+            <tr>
+               <td width="30" height="40">TOTAL</td>
+               <td width="30" height="40"></td>
+               <td width="30" height="40"></td>
+               <td width="30" height="40"></td>
+               <td width="30" height="40"></td>
+               <td width="30" height="40">$ {{number_format($total,2,'.',',')}}</td>  
+            </tr>
           </tbody>
         </table>
       

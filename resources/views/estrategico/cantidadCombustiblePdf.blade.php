@@ -4,7 +4,6 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-    <title> </title>
     <style type="text/css">
    
       body{
@@ -77,16 +76,10 @@
       text-align: center !important;
       max-width: 70% !important;
       margin: 0 auto;
-      
+      font-size: 10px;
     }
      
-      #firma{
-        height: auto; 
-        width: auto; 
-        max-width: 400px; 
-        max-height: 800px;
-      
-      }
+
     </style>
   </head>
   <body>
@@ -137,21 +130,28 @@
                <table id="Tabla" style="width:100%;">
           <tbody> 
             <tr>
-               <td width="30" height="40">ESTADO ACTUAL</td>
-               <td width="30" height="40">FECHA ASIGNADO</td>
-               <td width="30" height="40">COMBUSTIBLE ASIGNADO (gl)</td>               
-               <td width="30" height="40">AHORRO/EXCEDENTE</td>
-               <td width="30" height="40">COMBUSTIBLE FINAL</td>                 
+               <td width="20" height="30">ESTADO ACTUAL</td>
+               <td width="20" height="30">FECHA ASIGNADO</td>
+               <td width="20" height="30">COMBUSTIBLE ASIGNADO (gl)</td>               
+               <td width="20" height="30">AHORRO/EXCEDENTE</td>
+               <td width="20" height="30">COMBUSTIBLE FINAL</td>                 
             </tr>
             @foreach($tabla as $t)
              <tr>
-               <td width="30" height="40">{{$t->estadoactualuso}}</td>
-               <td width="30" height="40">{{$t->fechaasignado}}</td>
-               <td width="30" height="40">{{$t->combustibleasignado}}</td>
-               <td width="30" height="40">{{$t->ahorroexcedente}}</td>
-               <td width="30" height="40">{{$t->combustibleactualfinal}}</td>                        
+               <td width="20" height="30">{{$t->estadoactualuso}}</td>
+               <td width="20" height="30">{{$t->fechaasignado}}</td>
+               <td width="20" height="30">{{$t->combustibleasignado}}</td>
+               <td width="20" height="30">{{$t->ahorroexcedente}}</td>
+               <td width="20" height="30">{{$t->combustibleactualfinal}}</td>                      
             </tr>    
             @endforeach
+            <tr>
+               <td width="20" height="30">TOTAL</td>
+               <td width="20" height="30"></td>
+               <td width="20" height="30"></td>               
+               <td width="20" height="30"></td>
+               <td width="20" height="30">{{number_format($total,2,'.',',')}}</td>                 
+            </tr>
           </tbody>
         </table>
       
