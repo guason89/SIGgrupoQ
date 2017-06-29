@@ -129,16 +129,29 @@
                <table id="Tabla" style="width:100%;">
           <tbody> 
             <tr>               
-               <td width="30" height="40">LIENTE</td>          
+               <td width="30" height="40">CLIENTE</td>
+               <td width="30" height="40">TIPO DE PAGO</td>
+               <td width="30" height="40">FECHA</td>
                <td width="30" height="40">MONTO</td>
                                             
             </tr>
           
+            @foreach($tabla as $t)
             <tr>              
-             <td width="30" height="40">TOTAL</td>
-             <td width="30" height="40"></td>
-                                  
-            </tr>
+             <td width="20" height="30">{{$t->cliente}}</td>
+             <td width="20" height="30">{{$t->tipopago}}</td>
+             <td width="20" height="30">{{$t->fecha}}</td>
+             <td width="20" height="30">{{$t->totalmontofactura}}</td>
+             </tr>
+            @endforeach
+          <tr>
+            <td width="20" height="30">TOTAL</td>
+            <td width="20" height="30"></td>
+            <td width="20" height="30"></td>
+            <td width="20" height="30">$ {{number_format($totalMonto,2,'.',',')}}</td>
+
+          </tr>
+            
           </tbody>
         </table>
       

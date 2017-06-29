@@ -130,18 +130,29 @@
           <tbody> 
             <tr>               
                <td width="30" height="40">MATERIAL</td>          
-               <td width="30" height="40">SALDO DE EXISTENCIA AL</td>
-               <td width="30" height="40">COMPRA MENSUAL</td> 
-               <td width="30" height="40">CONSUMO DE MES</td> 
+               <td width="30" height="40">SALDO DE EXISTENCIAS</td> 
+               <td width="30" height="40">COMPRA MENSUAL</td>
+               <td width="30" height="40">FECHA</td> 
                <td width="30" height="40">SALDO DISPONIBLE</td>                           
             </tr>
+
+            @foreach($tabla as $t)
+            <tr>              
+             <td width="20" height="30">{{$t->nombre}}</td>
+             <td width="20" height="30">{{$t->cantidaddisponibles}} unidades</td>
+             <td width="20" height="30">{{$t->cantidadmensual}} unidades</td>
+             <td width="20" height="30">{{$t->fecha}}</td>
+             <td width="20" height="30">{{$t->saldodisponible}} unidades</td>
+                                          
+            </tr>
+            @endforeach
           
             <tr>              
              <td width="30" height="40">TOTAL</td>
              <td width="30" height="40"></td>
              <td width="30" height="40"></td>
              <td width="30" height="40"></td>
-             <td width="30" height="40"></td>                    
+             <td width="30" height="40"> {{number_format($totalMonto,2,'.',',')}} unidades</td>                    
             </tr>
           </tbody>
         </table>

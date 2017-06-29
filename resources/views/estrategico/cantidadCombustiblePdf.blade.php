@@ -125,7 +125,7 @@
    <div align="center">
      <main>
         <p><b>Desde :</b> {{$fechaInicio}} <b>Hasta :</b> {{$fechaFin}}</p> 
-        <p><b>Vehiculo : </b> C9999-9999</p>    
+        <p><b>Vehiculo : </b> {{$vehiculo}}</p>    
 
                <table id="Tabla" style="width:100%;">
           <tbody> 

@@ -296,8 +296,34 @@ class TacticoController extends Controller
         $data['fechaInicio'] = $request->fechaInicio;
         $data['fechaFin'] = $request->fechaFin;
 
-        $pdf = PDF::loadView('tactico.ventasAlContadoPdf',$data);
-        return $pdf->stream();
+        
+        $tabla = DB::table('ventascontadotact05 as tact05')
+                ->join('cliente as cli','tact05.idcliente','=','cli.idcliente')
+                ->join('tipopago as tpo','tact05.idtipopago','=','tpo.idtipopago')
+                ->join('tipoorden as tno','tact05.idtipoorden','=','tno.idtipoorden')
+                ->whereIn('tpo.nombre',['contado','cheque'])
+                ->whereBetween('tact05.fecha', array($request->fechaInicio, $request->fechaFin))
+                ->select('cli.nombre as cliente','tpo.nombre as tipopago','tact05.fecha','tno.nombre','tact05.totalmontofactura')
+                ->limit(16)->get();  
+   
+        if(count($tabla)<1){
+            Session::put('msjErr','alert');
+            return redirect()->back();
+        }
+
+         $totalMonto=0.00;
+        for($i=0; $i<count($tabla); $i++)
+        {            
+            $totalMonto = $totalMonto + $tabla[$i]->totalmontofactura;
+        }
+
+        $data['tabla'] = $tabla;        
+        $data['totalMonto'] = $totalMonto;
+
+        $view =  \View::make('tactico.ventasAlContadoPdf',$data)->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream("rptact05.pdf");
     }
 
     public function materialDeDespacho(){
@@ -329,7 +355,29 @@ class TacticoController extends Controller
         $data['fechaInicio'] = $request->fechaInicio;
         $data['fechaFin'] = $request->fechaFin;
 
-        $pdf = PDF::loadView('tactico.materialDespachoPdf',$data);
-        return $pdf->stream();
+
+        $tabla = DB::table('existenciadespachotact06 as tact06')
+                ->whereBetween('tact06.fecha', array($request->fechaInicio, $request->fechaFin))
+                ->select('materialdespachonombre as nombre','tipodatosnombre','tact06.fecha','cantidadmensual','costototalmensual','cantidaddisponibles','saldodisponible')
+                ->limit(10)->get();  
+   
+        if(count($tabla)<1){
+            Session::put('msjErr','alert');
+            return redirect()->back();
+        }
+
+         $totalMonto=0.00;
+        for($i=0; $i<count($tabla); $i++)
+        {            
+            $totalMonto = $totalMonto + $tabla[$i]->saldodisponible;
+        }
+
+        $data['tabla'] = $tabla;        
+        $data['totalMonto'] = $totalMonto;
+
+        $view =  \View::make('tactico.materialDespachoPdf',$data)->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream("rptact05.pdf");
     }
 }

@@ -23,7 +23,7 @@
 	    	<br>Grupo Q<b>
   </div>
   <div id="panel-collapse-info" class="collapse in">
-    <form action="{{route('informe-material-despacho')}}" method="POST" class="form form-vertical" role="form" id="almacenarRegistro" >
+    <form action="{{route('informe-material-despacho')}}" method="POST" class="form form-vertical" role="form" id="almacenarRegistro" target="_blank">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <br>   
       <div class="panel-body">

@@ -23,7 +23,7 @@
 	    	<br>Grupo Q<b>
   </div>
   <div id="panel-collapse-info" class="collapse in">
-    <form action="{{route('informe-combustible-consumido')}}" method="POST" class="form form-vertical" role="form" id="almacenarRegistro" >
+    <form action="{{route('informe-combustible-consumido')}}" method="POST" class="form form-vertical" role="form" id="almacenarRegistro" target="_blank">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <br>   
       <div class="panel-body">
@@ -85,7 +85,7 @@
 	var msg = "<ul class='text-warning'><li>No Se Encontró Ningun Registro En El Rango de Fecha Indicado!</li></ul>";
 	alertify.alert("Alerta!",msg, function(){    
   	});
-	{{Session::forget('msjErr')}}  
+	{!!Session::forget('msjErr')!!}  
  </script> 
 @endif
 

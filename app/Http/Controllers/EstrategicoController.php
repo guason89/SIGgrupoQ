@@ -293,6 +293,7 @@ class EstrategicoController extends Controller
         
         $data['tabla'] = $tabla;
         $data['total'] = $total;
+        $data['vehiculo'] = $request->vehiculo;
 
         $view =  \View::make('estrategico.cantidadCombustiblePdf',$data)->render();
         $pdf = \App::make('dompdf.wrapper');
