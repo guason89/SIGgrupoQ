@@ -54,7 +54,13 @@ class EstrategicoController extends Controller
             return redirect()->back();
         }
 
-        $data['tabla'] = $tabla;     
+        $total = 0.00;
+        foreach ($tabla as $t) {
+            $total += $t->montodiferencias;
+        }
+
+        $data['tabla'] = $tabla; 
+        $data['total'] = $total;    
         
         $view =  \View::make('estrategico.inventarioSelectivoPdf',$data)->render();
                  $pdf = \App::make('dompdf.wrapper');

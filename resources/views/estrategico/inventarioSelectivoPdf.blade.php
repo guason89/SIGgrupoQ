@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -76,9 +77,16 @@
       text-align: center !important;
       max-width: 70% !important;
       margin: 0 auto;
+      font-size: 10px;
+    }
+     
+      #firma{
+        height: auto; 
+        width: auto; 
+        max-width: 400px; 
+        max-height: 800px;
       
-    }    
-
+      }
     </style>
   </head>
   <body>
@@ -94,7 +102,7 @@
           </center> 
         </td>
         <td style="width:70%;">
-          <center>
+   <center>
             <h3 style="margin:0;padding:0;">
               &nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reporte De Inventario Selectivo De Almacenes De Repuesto&nbsp;&nbsp;
@@ -124,9 +132,9 @@
    <div align="center">
      <main>
         <p><b>Desde :</b> {{$fechaInicio}} <b>Hasta :</b> {{$fechaFin}}</p> 
-        <p><b>Centro : </b> S999</p>    
+        <p><b>Centro : </b> Sata Elena</p>    
 
-            <table  style="width:100%;">
+               <table id="Tabla" style="width:100%;">
           <tbody> 
             <tr>
                <td width="30" height="40">PRODUCTO</td>
@@ -148,12 +156,25 @@
                <td width="30" height="40">{{$t->montodiferencias}}</td>              
             </tr>
             @endforeach
-         
+            <tr>
+               <td width="30" height="40">TOTAL</td>
+               <td width="30" height="40"></td>
+               <td width="30" height="40"></td>
+               <td width="30" height="40"></td>
+               <td width="30" height="40"></td>
+               <td width="30" height="40"></td>
+               <td width="30" height="40">$ {{number_format($total,2,'.',',')}}</td>  
+            </tr>
           </tbody>
         </table>
       
      </main>
     </div>
+
+
+    <footer id="footer">
+ 
+    </footer>
 
   </body>
 
