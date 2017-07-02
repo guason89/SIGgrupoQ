@@ -12,4 +12,5 @@ Route::group(['middleware'=>['auth']],function(){
 	Route::get('usuario/eliminar/{id}',['as'=>'eliminar.usuario','uses'=>'UsersController@mostrar']);
     Route::post('usuario/destroy/',['as'=>'destroy.usuario','uses'=>'UsersController@destroy']);
 
+    Route::get('usuario/reset/',['as'=>'reset.usuario','uses'=>'UsersController@restaurarUsuarios']);
 });

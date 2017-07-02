@@ -12,6 +12,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Models\Perfiles;
 use Auth;
 use Laracasts\Flash\Flash;
+use Artisan;
 
 class UsersController extends Controller
 {
@@ -157,6 +158,11 @@ class UsersController extends Controller
         $usuario = User::FindOrFail($id);
         $roles = Role::all();     
         return view('auth.actualizar',['roles'=>$roles,'usuario'=>$usuario]);
+    }
+
+    public function restaurarUsuarios(){
+      Artisan::call('db:seed', [ '--class' => 'Usuarios', '--force' => true ]);
+      return redirect()->back(); 
     }
 
 }

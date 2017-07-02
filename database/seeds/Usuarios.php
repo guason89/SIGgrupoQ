@@ -26,7 +26,7 @@ class Usuarios extends Seeder
 
        	DB::table('usuarios')->insert([ 'nombre' => 'Administrador Del Sistema', 'email' => 'admin@gmail.com','usuario'=>'admin', 'password'=>md5('admin14'), 'activo'=>'true','idperfil'=>'1']);
 
-        DB::table('usuarios')->insert([ 'nombre' => 'De La Cruz De La O, Jose Oswaldo', 'email' => 'jose@gmail.com','usuario'=>'oswaldo', 'password'=>md5('de la o'), 'activo'=>'true','idperfil'=>'2']);
+        DB::table('usuarios')->insert([ 'nombre' => 'De La Cruz De La O, Jose Oswaldo', 'email' => 'jose@gmail.com','usuario'=>'oswaldo', 'password'=>md5('123123'), 'activo'=>'true','idperfil'=>'2']);
 
         DB::table('usuarios')->insert([ 'nombre' => 'Borja, Marcos Tulio', 'email' => 'marcos@gmail.com','usuario'=>'marcos', 'password'=>md5('borja'), 'activo'=>'true','idperfil'=>'3']);
     }

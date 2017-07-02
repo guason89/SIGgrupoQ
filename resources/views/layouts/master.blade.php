@@ -72,8 +72,7 @@
                             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">{{Auth::User()->nombre}}
                             <span class="caret"></span></button>
                             <ul class="dropdown-menu">
-                              <li><a href="{{route('logout')}}">Salir</a></li>                  
-                              <li class="divider"></li>                              
+                              <li><a href="{{route('logout')}}">Salir</a></li>          
                             </ul>
                         </div>
                        
