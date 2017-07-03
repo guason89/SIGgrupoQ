@@ -123,7 +123,7 @@
     </header>  
 
    <div align="center">
-     <main>
+ 
         <p><b>Desde :</b> {{$fechaInicio}} <b>Hasta :</b> {{$fechaFin}}</p> 
         <p><b>Vehiculo : </b> {{$vehiculo}}</p>    
 
@@ -154,8 +154,7 @@
             </tr>
           </tbody>
         </table>
-      
-     </main>
+
     </div>
 
 

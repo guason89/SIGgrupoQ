@@ -124,7 +124,7 @@
     </header>  
 
    <div align="center">
-     <main>
+
         <p><b>Desde :</b> {{$fechaInicio}} <b>Hasta :</b> {{$fechaFin}}</p>
         <p><b>Centro Salida :</b> {{$centroSalida}} <b>Centro Entrada :</b> {{$centroEntrada}}</p>     
 
@@ -158,8 +158,7 @@
             </tr>
           </tbody>
         </table>
-      
-     </main>
+
     </div>
 
     <div></div>

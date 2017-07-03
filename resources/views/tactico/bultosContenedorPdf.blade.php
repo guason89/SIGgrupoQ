@@ -124,7 +124,7 @@
     </header>  
 
    <div align="center">
-     <main>
+    
         <p><b>Desde :</b> {{$fechaInicio}} <b>Hasta :</b> {{$fechaFin}}</p> 
         <p><b>Proveedor : </b>{{$proveedor->nombre}}</p>    
 
@@ -153,7 +153,7 @@
           </tbody>
         </table>
       
-     </main>
+ 
     </div>
 
 

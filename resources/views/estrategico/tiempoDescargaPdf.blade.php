@@ -130,7 +130,7 @@
     </header>  
 
    <div align="center">
-     <main>
+
         <p><b>Desde :</b> {{$fechaInicio}} <b>Hasta :</b> {{$fechaFin}}</p>           
 
         <table id="Tabla" style="width:100%;">
@@ -155,8 +155,7 @@
             @endforeach
           </tbody>
         </table>
-      
-     </main>
+
     </div>
 
 

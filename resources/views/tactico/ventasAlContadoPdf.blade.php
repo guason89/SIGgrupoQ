@@ -123,7 +123,7 @@
     </header>  
 
    <div align="center">
-     <main>
+   
         <p><b>Desde :</b> {{$fechaInicio}} <b>Hasta :</b> {{$fechaFin}}</p>        
 
                <table id="Tabla" style="width:100%;">
@@ -154,8 +154,7 @@
             
           </tbody>
         </table>
-      
-     </main>
+
     </div>
 
 
